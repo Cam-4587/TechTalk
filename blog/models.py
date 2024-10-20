@@ -15,7 +15,7 @@ class Tag(models.Model):
 class Post(models.Model):
        title = models.CharField(max_length=200, unique=True)
        slug = models.SlugField(max_length=200, unique=True)
-       tags = models.ManyToManyField(Tag)
+       tags = models.ManyToManyField(Tag, blank=True)
        author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts") 
        image = models.ImageField(upload_to='upload/', blank=True, null=True)
        intro = models.TextField(blank=True)
