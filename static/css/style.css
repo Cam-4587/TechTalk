@@ -23,6 +23,14 @@ footer {
   margin-top: auto;
 }
 
-.card-img-top{
-  width:300px;
+.card {
+  width: 25rem;
+  padding:25px;
+  margin: 40px;
+  box-shadow: 5px 10px 10px 5px #888888;
+}
+
+.row{
+  display: flex;
+  justify-content:space-evenly;
 }
