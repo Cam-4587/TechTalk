@@ -22,3 +22,7 @@ body {
 footer {
   margin-top: auto;
 }
+
+.card-img-top{
+  width:300px;
+}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -17,7 +18,7 @@ class Post(models.Model):
        slug = models.SlugField(max_length=200, unique=True)
        tags = models.ManyToManyField(Tag, blank=True)
        author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts") 
-       image = models.ImageField(upload_to='upload/', blank=True, null=True)
+       image = CloudinaryField('image', default='placeholder', blank=True, null=True)
        intro = models.TextField(blank=True)
        content = models.TextField()
        published_date = models.DateTimeField(auto_now_add=True)
