@@ -23,6 +23,8 @@ footer {
   margin-top: auto;
 }
 
+/*Generic sizing and positioning for all pages*/
+
 .card {
   width: 25rem;
   padding:25px;
