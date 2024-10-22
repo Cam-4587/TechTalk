@@ -25,7 +25,7 @@ footer {
 
 /*Generic sizing and positioning for all pages*/
 
-.card {
+.card-home-page {
   width: 25rem;
   padding:25px;
   margin: 40px;
@@ -48,8 +48,40 @@ footer {
   cursor: pointer;
 }
 
+/*Blog display styling and positioning*/
+
+.blog-display-container{
+  width:70%;
+}
+
+.blog-card {
+  background-color: #f5f5f5;
+}
+
+.blog-display-img{
+  width:60%;
+}
+
+.blog-display-txt {
+  width:90%;
+}
+
+/*Media queries for mobile styling*/
+
 @media only screen and (max-width: 768px) {
-  .card {
+
+  /*Home Page*/
+  .card-home-page {
     width: 80%;
+  }
+
+  /*Blog Display Page*/
+  
+  .blog-display-img{ 
+    min-width:90%;
+  }
+
+  .blog-display-container{
+    min-width:100%;
   }
 }
