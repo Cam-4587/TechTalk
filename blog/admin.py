@@ -25,6 +25,7 @@ class PostAdmin(admin.ModelAdmin):
     model = Post
     inlines = [CommentItemInline]
     prepopulated_fields = {'slug': ('title',)}
+    filter_vertical = ('tags',)
 
 
 
