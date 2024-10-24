@@ -66,6 +66,14 @@ footer {
   width:90%;
 }
 
+
+/*Login page styling*/
+
+.login-logo{
+  height:45px;
+  width:45px;
+}
+
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {
