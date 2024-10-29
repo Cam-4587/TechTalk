@@ -17,6 +17,28 @@
                 </div>
             </div>
         </div>
+        {% if user.is_authenticated %}
+        <form method="post">
+            <div class="form-group blog-card p-3 mt-5 border border-dark">
+                <div>
+                    <h4>Post your comment:</h4>
+                    {% csrf_token %}
+                    {{comment_form.as_p}}
+                    <input type="submit" name="form" value="Add Comment" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+        {% else %}
+        <div class="card blog-card shadow p-3 mt-3">
+            <p>Log in to leave a comment</p>
+        </div>
+        {% endif %}
+        {% for comment in post.comments.all %}
+        <div class="form-group blog-card p-3 mt-5 border border-dark">
+            <h4>{{comment.author}} <small>Posted on {{comment.created_on}}</small></h4>
+            <p>{{comment.content}}</p>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
