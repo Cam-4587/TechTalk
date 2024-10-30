@@ -16,9 +16,18 @@
                     {{post.content}}
                 </div>
             </div>
+            {% if post.comments.count %}
+            <div hx-swap-oob="true" id="commentscount-{{ post.id }}" class="card-text"> <h4>Comments: {{ post.comments.count}}</h4></div>
+            {% else %}
+            {% if user.is_authenticated %}
+            Add comment
+            {% endif %}
+            {% endif %}
         </div>
+
+
         {% if user.is_authenticated %}
-        <form method="post">
+        <form method="POST" action="{% url 'comment-sent' post.slug %}">
             <div class="form-group blog-card p-3 mt-5 border border-dark">
                 <div>
                     <h4>Post your comment:</h4>
@@ -33,12 +42,11 @@
             <p>Log in to leave a comment</p>
         </div>
         {% endif %}
-        {% for comment in post.comments.all %}
-        <div class="form-group blog-card p-3 mt-5 border border-dark">
-            <h4>{{comment.author}} <small>Posted on {{comment.created_on}}</small></h4>
-            <p>{{comment.content}}</p>
+        <div id="tab-contents">
+            {% for comment in post.comments.all %}
+            {% include 'blog/comment.html' %}
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

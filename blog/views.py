@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from .models import Post, Comment, Reply
 from .forms import CommentForm
+import uuid
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.all()
@@ -14,21 +15,37 @@ def post_blog(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     comment_form = CommentForm()
+   
+    context = {
+    "post": post,
+    "comment_form": comment_form,
+    }
     
-    if request.method == "POST":
-        comment_form = CommentForm(data=request.POST)
-    if comment_form.is_valid():
-        comment = comment_form.save(commit=False)
-        comment.author = request.user
-        comment.post = post
-        comment.save()
-        return redirect('post_blog', slug=post.slug)
-    else:
-        comment_form = CommentForm()
     return render(
         request,
         "blog/post_blog.html",
-        {"post": post,
-        "comment_form": comment_form,
-        },
+         context
     )
+    
+def comment_sent(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            return redirect('post_blog', slug=post.slug)
+    return redirect('post_blog', slug=post.slug)
+
+
+def comment_delete(request, pk, slug):
+    post = get_object_or_404(Post, slug=slug)
+    comment = get_object_or_404(Comment, id=pk, author=request.user)
+
+    if request.method == "POST":
+        comment.delete()
+        return redirect('post_blog', slug=post.slug)
+
+    return render(request, 'blog/comment_delete.html', {'comment': comment, 'post': post})
