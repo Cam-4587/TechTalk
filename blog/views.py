@@ -51,3 +51,19 @@ def comment_delete(request, pk, slug):
         return redirect('post_blog', slug=post.slug)
 
     return render(request, 'blog/comment_delete.html', {'comment': comment, 'post': post})
+
+def reply_sent(request, pk):
+    comment= get_object_or_404(Comment, id=pk)
+    post = comment.post
+    
+    if request.method == 'POST':
+        form = ReplyForm(request.POST)
+        if form.is_valid:
+            reply = form.save(commit=False)
+            reply.author = request.user
+            reply.reply = comment            
+            reply.save()
+            return redirect('post_blog', slug=post.slug)
+    return redirect('post_blog', slug=post.slug)
+
+

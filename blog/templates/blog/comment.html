@@ -25,7 +25,7 @@
         </div>
         <div>
             {% if comment.reply.count %}
-            Replies : <span id="replycount-{{ comment.id }}" class="font-light text-gray-500 ml-1">{{ comment.reply.count}}</span>
+            Replies : <span id="replycount-{{ comment.id }}" class="font-light text-gray-500 ml-1">{{comment.reply.count}}</span>
             {% else %}
             {% if user.is_authenticated %}
             Add Reply
@@ -41,19 +41,10 @@
                 {% include 'blog/reply.html' %}
                 {% endfor %}
             </div>
-        </div>
-
-        <div x-show="repliesOpen" x-cloak class="basis-full mt-3 pl-8 grid grid-cols-1">
-
-            {% for reply in comment.replies.all %}
-            {% include 'blog/reply.html' %}
-            {% endfor %}
-
             {% if user.is_authenticated %}
-            <form class="replyform flex justify-between" autocomplete="off" hx-post="#" hx-target="this"
-                hx-swap="outerHTML">
+            <form method="POST" action="{% url 'reply-sent' comment.id %}">
                 {% csrf_token %}
-                {{ replyform }}
+                {{ reply_form }}
                 <button class="block" type="submit">Submit</button>
             </form>
             {% endif %}
