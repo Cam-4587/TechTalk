@@ -66,4 +66,14 @@ def reply_sent(request, pk):
             return redirect('post_blog', slug=post.slug)
     return redirect('post_blog', slug=post.slug)
 
+def reply_delete(request, pk):
+    reply = get_object_or_404(Reply, id=pk, author=request.user)
+    post = reply.reply.post
+
+    if request.method == "POST":
+        reply.delete()
+        return redirect('post_blog', slug=post.slug)
+
+    return render(request, 'blog/reply_delete.html', {'reply': reply, 'post': post})
+
 

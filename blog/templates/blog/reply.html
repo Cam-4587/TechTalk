@@ -11,11 +11,10 @@
         {% endif %}
         <div class="mr-3">{{ reply.content }}</div>
         {% if user.is_authenticated and reply.author == user %}
-        <div class="flex items-center gap-4 [&>a:hover]:underline">
-            {% if user.is_authenticated and comment.author == user %}
-            <a href="#">Delete</a>
-            {% endif %}
-        </div>
+        <a class="cursor-pointer" href="{% url 'reply-delete' reply.id %}" hx-target="#reply-{{ reply.id }}"
+            hx-swap="outerHTML">
+            Delete
+        </a>
         {% endif %}
     </div>
-</reply> 
+</reply>
