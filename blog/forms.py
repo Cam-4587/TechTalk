@@ -19,3 +19,18 @@ class CommentForm(forms.ModelForm):
                 'placeholder': 'Enter Your Comment'
             })
         }
+
+class ReplyForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['content']
+        labels = {
+            'content': 'Enter Reply here:'
+        }
+        widgets = {
+            'content': forms.Textarea(attrs={
+                'class': 'form-control', 
+                'rows': 2, 
+                'cols': 10
+            })
+        }

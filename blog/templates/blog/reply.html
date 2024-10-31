@@ -1,0 +1,23 @@
+{% load static %}
+<reply id="reply-{{ reply.id }}" class="block pt-2 mt-2 border-t">
+    <div class="w-fit">
+        {% if reply.author %}
+        <a class="block" href="">
+            <span class="font-bold hover:underline">{{ reply.author }}</span>
+            <span class="text-sm text-gray-400">@{{ reply.created_on }}</span>
+        </a>
+        {% else %}
+        <span class="text-gray-500">no author</span>
+        {% endif %}
+        <div class="mr-3">{{ reply.content }}</div>
+
+        {% if user.is_authenticated %}
+        <form class="replyform flex justify-between" autocomplete="off" hx-post="#"
+            hx-target="this" hx-swap="outerHTML">
+            {% csrf_token %}
+            {{ reply_form }}
+            <button class="block" type="submit">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+</reply>

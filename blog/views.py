@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from .models import Post, Comment, Reply
-from .forms import CommentForm
+from .forms import CommentForm, ReplyForm
 import uuid
 # Create your views here.
 class PostList(generic.ListView):
@@ -15,10 +15,12 @@ def post_blog(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     comment_form = CommentForm()
+    reply_form = ReplyForm()
    
     context = {
     "post": post,
     "comment_form": comment_form,
+    "reply_form": reply_form,
     }
     
     return render(

@@ -1,6 +1,6 @@
 {% load static %}
 <comment class="card p-4 !mb-4">
-    <div class="flex justify-between items-center"> 
+    <div class="flex justify-between items-center">
         {% if comment.author %}
         <a class="flex items-center gap-1 mb-2" href="#">
             <img class="w-8 h-8 object-cover rounded-full" src="#">
@@ -17,30 +17,31 @@
     <p class="text-xl px-2">
         {{ comment.content }}
     </p>
-    <div x-data="{ repliesOpen: false }" class="flex items-center justify-between flex-wrap text-sm px-2">
-        <a @click="repliesOpen = !repliesOpen" class="font-bold hover:underline cursor-pointer">
-            {% if comment.replies.count or user.is_authenticated %}
-            <div class="inline-block" x-bind:class="repliesOpen && 'rotate-90 duration-300'">
-                <svg transform ="rotate(90)" width="9" height="9" viewBox="0 0 25 25">
-                    <path d="M24 22h-24l12-20z"/>
-                </svg>
-            </div>
-            {% endif %}
-            {% if comment.replies.count %}
-            Replies
-            <span id="repliescount-{{ comment.id }}" class="font-light text-gray-500 ml-1">{{ comment.replies.count }}</span>
-            {% else %}
-                {% if user.is_authenticated %}
-                Add Reply
-                {% endif %}
-            {% endif %}
-        </a>
+    <div>
         <div class="flex items-center gap-4 [&>a:hover]:underline">
             {% if user.is_authenticated and comment.author == user %}
             <a href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>
             {% endif %}
         </div>
-</div>
+        <div>
+            {% if comment.reply.count %}
+            Replies : <span id="replycount-{{ comment.id }}" class="font-light text-gray-500 ml-1">{{ comment.reply.count}}</span>
+            {% else %}
+            {% if user.is_authenticated %}
+            Add Reply
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div x-data="{ open: false }">
+        <button @click="open = ! open">Open Replies</button>
+        <div x-show="open" @click.outside="open = false">
+            <div id="tab-contents">
+                {% for reply in comment.reply.all %}
+                {% include 'blog/reply.html' %}
+                {% endfor %}
+            </div>
+        </div>
 
         <div x-show="repliesOpen" x-cloak class="basis-full mt-3 pl-8 grid grid-cols-1">
 
@@ -49,15 +50,13 @@
             {% endfor %}
 
             {% if user.is_authenticated %}
-            <form class="replyform flex justify-between" autocomplete="off"
-            hx-post="#"
-            hx-target="this" 
-            hx-swap="outerHTML" >
+            <form class="replyform flex justify-between" autocomplete="off" hx-post="#" hx-target="this"
+                hx-swap="outerHTML">
                 {% csrf_token %}
                 {{ replyform }}
                 <button class="block" type="submit">Submit</button>
             </form>
             {% endif %}
         </div>
-    </div> 
+    </div>
 </comment>
