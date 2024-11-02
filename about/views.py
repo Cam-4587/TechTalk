@@ -1,17 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from.models import Profile
 from .forms import UpdateProfileForm
+
 # Create your views here.
+@login_required
 def profile(request):
     """
     Renders the Profile page
     """
-    profile = Profile.objects.all().order_by('updated_on').first
-    profile_form = UpdateProfileForm()
+    # Ensure the profile is fetched using the user relationship
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    profile_form = UpdateProfileForm(instance=profile)
+
+    if request.method == "POST":
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated successfully')
+            return redirect('users-profile')
+
+    context =  {
+        "profile": profile,
+        "profile_form": profile_form,
+        "profile_created": not created,
+    }
     
-    return render(
-    request,
-    "about/profile.html",
-    {"profile": profile,
-    "profile_form": profile_form},
-)
+    return render(request, "about/profile.html", context)
+
+
