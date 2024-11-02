@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>This will be your profile page</h1>
+{% if profile.user == user %}
+<div class="container mt-3 mb-5 border border-dark">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="mt-3"><u>{{ profile.user }}</u></h2>
+        <div class="col-4 text-center">
+            {% if "nobody" in profile.image.url %}
+            <img src="{% static 'images/nobody.jpg' %}" width="100%" alt="default image" class="mt-3">
+            {% else %}
+            <img src="{{ profile.image.url}}" width="100%" alt="profile image" class="mt-3">
+            {% endif %}
+        </div>
+        <div class="col-6 mt-3">
+            {{ profile.bio| safe }}
+            <p class="mt-3"><em>Updated on: {{ profile.updated_on }}</em></p>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="form-content">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="small mb-1">Change Profile image:</label>
+                    {{ profile_form.image }}
+                </div>
+                <hr>
+                <label class="small mb-1">Write your Profile Bio here:</label> 
+                <div>{{ profile_form.bio }}</div>
+            </div>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+    </form>
+</div>
+{% endif %}
 {% endblock %}
