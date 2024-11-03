@@ -13,7 +13,7 @@ def profile(request):
     # Ensure the profile is fetched using the user relationship
     profile, created = Profile.objects.get_or_create(user=request.user)
     profile_form = UpdateProfileForm(instance=profile)
-
+    
     if request.method == "POST":
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
@@ -33,7 +33,7 @@ def profile(request):
 
 def UpdateProfile(request):
     """
-    Renders the Profile page
+    Updates the Users Profile
     """
     # Ensure the profile is fetched using the user relationship
     profile, created = Profile.objects.get_or_create(user=request.user)
@@ -53,5 +53,17 @@ def UpdateProfile(request):
     }
     
     return render(request, "about/profile_edit.html", context)
+
+def DeleteProfile(request):
+    """
+    Deletes the Users Profile
+    """
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    profile_form = UpdateProfileForm(instance=profile)
+    
+    if request.method == "POST":
+        profile.delete()
+        return redirect('users-profile')
+    return render(request, "about/profile_delete.html")
 
 
