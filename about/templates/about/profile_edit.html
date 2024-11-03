@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="form-content">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="small mb-1">Change Profile image:</label>
+                    {{ profile_form.image }}
+                </div>
+                <hr>
+                <label class="small mb-1">Write your Profile Bio here:</label> 
+                <div>{{ profile_form.bio }}</div>
+            </div>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

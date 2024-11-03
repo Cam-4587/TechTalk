@@ -30,3 +30,28 @@ def profile(request):
     return render(request, "about/profile.html", context)
 
 
+
+def UpdateProfile(request):
+    """
+    Renders the Profile page
+    """
+    # Ensure the profile is fetched using the user relationship
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    profile_form = UpdateProfileForm(instance=profile)
+
+    if request.method == "POST":
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated successfully')
+            return redirect('users-profile')
+
+    context =  {
+        "profile": profile,
+        "profile_form": profile_form,
+        "profile_created": not created,
+    }
+    
+    return render(request, "about/profile_edit.html", context)
+
+
