@@ -1,53 +1,44 @@
 {% load static %}
-<comment class="card p-4 !mb-4">
-    <div class="flex justify-between items-center">
-        {% if comment.author %}
-        <a class="flex items-center gap-1 mb-2" href="#">
-            <img class="w-8 h-8 object-cover rounded-full" src="#">
-            <span class="font-bold hover:underline">{{ comment.author}}</span>
-            <span class="text-sm font-normal text-gray-400">@{{ comment.created_on }}</span>
+<div class="comment-thread">
+    <!-- Comment 1 start -->
+    <div class="comment" id="comment-1">
+        <a href="#comment-1" class="comment-border-link">
         </a>
-        {% else %}
-        <div class="flex items-center gap-1 mb-4">
-            <img class="w-8 h-8 object-cover rounded-full" src="#">
-            <span class="text-gray-500">no author</span>
-        </div>
-        {% endif %}
-    </div>
-    <p class="text-xl px-2">
-        {{ comment.content }}
-    </p>
-    <div>
-        <div class="flex items-center gap-4 [&>a:hover]:underline">
-            {% if user.is_authenticated and comment.author == user %}
-            <a href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>
-            {% endif %}
-        </div>
-        <div>
-            {% if comment.reply.count %}
-            Replies : <span id="replycount-{{ comment.id }}" class="font-light text-gray-500 ml-1">{{comment.reply.count}}</span>
-            {% else %}
-            {% if user.is_authenticated %}
-            Add Reply
-            {% endif %}
-            {% endif %}
-        </div>
-    </div>
-    <div x-data="{ open: false }">
-        <button @click="open = ! open">Open Replies</button>
-        <div x-show="open" @click.outside="open = false">
-            <div id="tab-contents">
-                {% for reply in comment.reply.all %}
-                {% include 'blog/reply.html' %}
-                {% endfor %}
+        <div class="comment-heading">
+            <div class="comment-info">
+                <a href="#" class="comment-author">{{ comment.author}}</a>
+                <p class="m-0">
+                    @{{ comment.created_on }}
+                </p>
             </div>
-            {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'reply-sent' comment.id %}">
-                {% csrf_token %}
-                {{ reply_form }}
-                <button class="block" type="submit">Submit</button>
-            </form>
-            {% endif %}
+        </div>
+        <div class="comment-body">
+            <p>
+                {{ comment.content }}
+            </p>
+            <div class="flex items-center gap-4 [&>a:hover]:underline">
+                {% if user.is_authenticated and comment.author == user %}
+                <button class="mb-1">
+                    <a class="text-decoration-none text-dark"
+                        href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>
+                </button>
+                {% endif %}
+            </div>
+            <div x-data="{ open: false }">
+                <button type="button" @click="open = ! open"> Toggle Replies</button>
+                <div x-show="open" @click.outside="open = false">
+                    {% for reply in comment.reply.all %}
+                    {% include 'blog/reply.html' %}
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+                    <form method="POST" class="reply-form" action="{% url 'reply-sent' comment.id %}">
+                        {% csrf_token %}
+                        {{ reply_form }}
+                        <button class="block reply-button" type="submit">Submit</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
-</comment>
+</div>

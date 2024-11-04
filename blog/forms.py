@@ -31,6 +31,6 @@ class ReplyForm(forms.ModelForm):
             'content': forms.Textarea(attrs={
                 'class': 'form-control', 
                 'rows': 2, 
-                'cols': 10
+                'cols': 10,
             })
         }

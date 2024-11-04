@@ -16,8 +16,11 @@
                     {{post.content}}
                 </div>
             </div>
+
             {% if post.comments.count %}
-            <div hx-swap-oob="true" id="commentscount-{{ post.id }}" class="card-text"> <h4>Comments: {{ post.comments.count}}</h4></div>
+            <div hx-swap-oob="true" id="commentscount-{{ post.id }}" class="card-text">
+                <h4>Comments: {{ post.comments.count}}</h4>
+            </div>
             {% else %}
             {% if user.is_authenticated %}
             Add comment
@@ -25,28 +28,31 @@
             {% endif %}
         </div>
 
-
-        {% if user.is_authenticated %}
-        <form method="POST" action="{% url 'comment-sent' post.slug %}">
-            <div class="form-group blog-card p-3 mt-5 border border-dark">
-                <div>
-                    <h4>Post your comment:</h4>
-                    {% csrf_token %}
-                    {{comment_form.as_p}}
-                    <input type="submit" name="form" value="Add Comment" class="btn btn-primary btn-sm">
-                </div>
+        <div class="comment-thread mt-5">
+            {% if user.is_authenticated %}
+            <div class="comment">
+                <form method="POST" action="{% url 'comment-sent' post.slug %}">
+                    <div>
+                        <div>
+                            <h4>Post your comment:</h4>
+                            {% csrf_token %}
+                            {{comment_form.as_p}}
+                            <button class="block reply-button" type="submit">Add Comment
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
         {% else %}
         <div class="card blog-card shadow p-3 mt-3">
             <p>Log in to leave a comment</p>
         </div>
         {% endif %}
-        <div id="tab-contents">
-            {% for comment in post.comments.all %}
-            {% include 'blog/comment.html' %}
-            {% endfor %}
-        </div>
+        {% for comment in post.comments.all %}
+        {% include 'blog/comment.html' %}
+        {% endfor %}
     </div>
 </div>
+
 {% endblock %}
