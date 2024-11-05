@@ -67,3 +67,7 @@ def DeleteProfile(request):
     return render(request, "about/profile_delete.html")
 
 
+def AboutUs(request):
+    return render(request, "about/about_us.html")
+
+

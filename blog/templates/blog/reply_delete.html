@@ -9,9 +9,9 @@
                     <h6>{{reply.author}} @{{ reply.created_on}}</h6>
                     <p>"{{reply.content}}"</p>
                     <div class="d-flex pt-3 gap-3">
-                            <button type="submit">Yes, delete</button>
-                            <button>
-                                    <a class="text-decoration-none text-dark"
+                            <button  class="btn btn-secondary" type="submit">Yes, delete</button>
+                            <button class="btn btn-secondary">
+                                    <a class="text-decoration-none text-light"
                                             href="{% url 'post_blog' post.slug %}">No,
                                             cancel</a>
                             </button>

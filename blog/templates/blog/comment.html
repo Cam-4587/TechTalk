@@ -16,16 +16,15 @@
             <p>
                 {{ comment.content }}
             </p>
-            <div class="flex items-center gap-4 [&>a:hover]:underline">
+            <div >
                 {% if user.is_authenticated and comment.author == user %}
-                <button class="mb-1">
-                    <a class="text-decoration-none text-dark"
-                        href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>
-                </button>
+                <div class="mb-2">
+                    <a class="text-decoration-none comment-reply-button" href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>    
+                </div>
                 {% endif %}
             </div>
             <div x-data="{ open: false }">
-                <button type="button" @click="open = ! open"> Toggle Replies</button>
+                <button class="comment-reply-button" type="button" @click="open = ! open"> Toggle Replies</button>
                 <div x-show="open" @click.outside="open = false">
                     {% for reply in comment.reply.all %}
                     {% include 'blog/reply.html' %}
@@ -34,7 +33,7 @@
                     <form method="POST" class="reply-form" action="{% url 'reply-sent' comment.id %}">
                         {% csrf_token %}
                         {{ reply_form }}
-                        <button class="block reply-button" type="submit">Submit</button>
+                        <button class="block reply-button comment-reply-button" type="submit">Submit</button>
                     </form>
                     {% endif %}
                 </div>

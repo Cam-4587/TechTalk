@@ -21,7 +21,7 @@
             <div>
                 <a class="cursor-pointer" href="{% url 'reply-delete' reply.id %}" hx-target="#reply-{{ reply.id }}"
                     hx-swap="outerHTML">
-                    <button class="block" type="submit">Delete</button>
+                    <button class="block comment-reply-button" type="submit">Delete</button>
                 </a>
             </div>
             {% endif %}

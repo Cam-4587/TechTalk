@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% url 'account_signup' as signup_url %}
+{% block content %}
+<div class="about-us-section">
+    <div class="about-us-container">
+        <div class="about-us-content-section">
+            <div class="about-us-title">
+                <h1>About Us</h1>
+            </div>
+            <div class="about-us-content">
+                <p>TechTalk is a blog for users to add blog posts about topics associated with technology. Users can
+                    look at different blog posts created by users
+                    but you need to register an account in order to make your own profile, blog posts, add comments,
+                    reply to comments.</p>
+                <p>We cover a wide range of topics, including:</p>
+                <ul>
+                    <li>Tech news and reviews of the latest gadgets</li>
+                    <li>In-depth analyses of trends like AI, blockchain, and cybersecurity</li>
+                    <li>Hands-on guides for DIY projects, software tools, and productivity hacks</li>
+                    <li>Thought-provoking discussions on the future of technology</li>
+                </ul>
+                {% if not user.is_authenticated %}
+                <div class="about-us-button">
+                    <a href="{% url 'account_signup' %}">Sign Up Here</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="about-us-image-section">
+        <img src="{% static 'images/59869.jpg' %}" alt="about-us-image">
+    </div>
+</div>
+{% endblock %}
