@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment, Reply
+from .models import Comment, Reply, Post, Tag
 
 
 class CommentForm(forms.ModelForm):
@@ -34,3 +34,8 @@ class ReplyForm(forms.ModelForm):
                 'cols': 10,
             })
         }
+
+class CreateBlogPost(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title',  'intro', 'image', 'intro', 'content']

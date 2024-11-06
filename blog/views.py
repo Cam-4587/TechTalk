@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
+from django.utils.text import slugify
 from .models import Post, Comment, Reply
-from .forms import CommentForm, ReplyForm
+from .forms import CommentForm, ReplyForm, CreateBlogPost
+import about
 import uuid
 # Create your views here.
 class PostList(generic.ListView):
@@ -75,5 +77,26 @@ def reply_delete(request, pk):
         return redirect('post_blog', slug=post.slug)
 
     return render(request, 'blog/reply_delete.html', {'reply': reply, 'post': post})
+
+
+def CreatePost(request):
+    blogpost = CreateBlogPost()
+    
+    if request.method == 'POST':
+        form = CreateBlogPost(request.POST)
+        if form.is_valid():
+            blogpost = form.save(commit=False)
+            blogpost.author = request.user       
+            blogpost.slug = slugify(Post.title)
+            form.save_m2m()
+            blogpost.save()
+            return redirect('users-profile') 
+    else: 
+        form = CreateBlogPost()
+    
+    context = {
+        'blogpost': blogpost
+    }
+    return render(request, 'blog/create_blog_post.html', context)
 
 
