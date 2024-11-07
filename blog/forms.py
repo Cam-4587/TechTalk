@@ -38,4 +38,4 @@ class ReplyForm(forms.ModelForm):
 class CreateBlogPost(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title',  'intro', 'image', 'intro', 'content']
+        fields = ['title', 'image', 'tags', 'intro',  'intro', 'content']
