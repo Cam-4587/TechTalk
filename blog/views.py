@@ -109,3 +109,18 @@ def post_delete(request, slug):
 
     return render(request, 'blog/delete_blog_post.html', {'post': post})
 
+def EditPost(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    
+    if request.method == 'POST':
+        form = CreateBlogPost(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = CreateBlogPost(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form, 'post': post})
+
+    
+
+
