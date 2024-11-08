@@ -8,4 +8,5 @@ urlpatterns = [
     path('comment-delete/<uuid:pk>/<slug:slug>/', views.comment_delete, name='comment-delete'),
     path('reply-sent/<uuid:pk>/', views.reply_sent, name='reply-sent'),
     path('reply-delete/<uuid:pk>/', views.reply_delete, name='reply-delete'),
+    path('post-delete/<slug:slug>/', views.post_delete, name='delete-post'),
 ]  

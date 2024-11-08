@@ -26,7 +26,15 @@
             Add comment
             {% endif %}
             {% endif %}
+            <div >
+                {% if user.is_authenticated and post.author == user %}
+                <div class="mb-2">
+                    <a class="text-decoration-none comment-reply-button" href="{% url 'delete-post' post.slug %}">Delete Post</a>    
+                </div>
+                {% endif %}
+            </div>
         </div>
+    </div>
 
         <div class="comment-thread mt-5">
             {% if user.is_authenticated %}

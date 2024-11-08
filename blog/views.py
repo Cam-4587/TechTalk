@@ -100,3 +100,12 @@ def CreatePost(request):
     return render(request, 'blog/create_blog_post.html', context)
 
 
+def post_delete(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == "POST":
+        post.delete()
+        return redirect('home')
+
+    return render(request, 'blog/delete_blog_post.html', {'post': post})
+
