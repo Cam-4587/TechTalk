@@ -31,7 +31,7 @@
 
 <body>
 
-  <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar py-3 navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -47,20 +47,24 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a> 
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
+                    <div class="vr"></div>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about-us' %}">About Us</a>
                     </li>
+                    <div class="vr"></div>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <div class="vr"></div>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users-profile' %}">{{ user }}</a>
+                    </li>
+                    <div class="vr"></div>
+                    <li class="nav-item">
+                        <strong><a class="nav-link font-weight-bold" href="{% url 'create-blog-post' %}">Create a Blog Post</a></strong>
                     </li>
                     {% endif %}
                 </ul>
@@ -73,6 +77,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
+                    <div class="vr"></div>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
                     </li>
@@ -82,11 +87,11 @@
         </div>
     </nav>
 
-{% block content%} 
-<!-- Main Content -->
-{% endblock %}
+    {% block content%}
+    <!-- Main Content -->
+    {% endblock %}
 
-  <!-- Footer -->
+    <!-- Footer -->
 
     <footer class="footer mx-auto py-3 bg-body-secondary container-fluid">
         <p class="m-0 text-center"> Made by Cameron Conroy&copy;</p>
@@ -104,6 +109,8 @@
     <script src="https://kit.fontawesome.com/591946d0d0.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.9.10/tagify.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.9.10/tagify.min.js"></script>
 
 </body>
 

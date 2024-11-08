@@ -90,7 +90,7 @@ def CreatePost(request):
             blogpost.slug = slugify(Post.title)
             blogpost.save()
             form.save_m2m()
-            return redirect('users-profile') 
+            return redirect('home') 
     else: 
         form = CreateBlogPost()
     
