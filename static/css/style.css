@@ -338,6 +338,19 @@ footer {
   color: #fff;
 }
 
+/* Contact section styling*/
+
+.contact-form,
+.contact-info-text {
+  font-family: Poppins;
+}
+
+#map {
+  height:300px;
+  width:100%;
+  margin-top:50px;
+}
+
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {

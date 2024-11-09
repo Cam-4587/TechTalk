@@ -2,6 +2,7 @@
 {% url 'account_login' as login_url %}
 {% url 'home' as home_url %}
 {% url 'profile' as profile_url %}
+{% url 'contact-form' as contaxt_form_url %}
 {% url 'create-blog-post' as create-blog-post_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -55,7 +56,7 @@
                     </li>
                     <div class="vr"></div>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="{% url 'contact-form' %}">Contact</a>
                     </li>
                     <div class="vr"></div>
                     {% if user.is_authenticated %}
