@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteInplaceWidget
 from .models import Comment, Reply, Post, Tag
 
 
@@ -45,11 +46,12 @@ class CreateBlogPost(forms.ModelForm):
             'image': forms.ClearableFileInput(attrs={ "class": "form-control", "id": "formFile", "label": "Default file input example"}),
             'tags': forms.SelectMultiple(attrs={ "class": "form-select", "aria-label": "Default select example"}),
             'intro': forms.Textarea(attrs={"class": "form-control"}),
-            'content': forms.Textarea(attrs={"class": "form-control"}),
+            'content': SummernoteInplaceWidget(attrs={"class": "form-control"}),
         }
         
         labels = {
             'tags': 'Tags, hold down ctrl to select multiple tags:'
         }
         
+
         

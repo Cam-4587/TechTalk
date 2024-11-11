@@ -40,8 +40,8 @@
                     </div>
                 </article>
                 <!-- Post content-->
-                <section class="mb-5 mt-3">
-                    {{post.content}}
+                <section class="mb-5 mt-3" enctype="multipart/form-data">
+                    {{post.content | safe}}
                 </section>
             </div>
         </div>

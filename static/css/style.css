@@ -351,6 +351,13 @@ footer {
   margin-top:50px;
 }
 
+/* Profile page offwhite colour */
+
+.offwhite{
+  background-color: #FAF9F6;
+}
+
+
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {

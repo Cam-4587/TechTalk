@@ -6,7 +6,7 @@
     <form method="POST" enctype="multipart/form-data" action="{% url 'create-blog-post' %}"
         class="w-50 bg-light border border-dark p-4 rounded border border-5">
         {% csrf_token %}
-        {{ blogpost.as_p }}
+        {{ blogpost.as_p | safe }}
         <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
 </div>
