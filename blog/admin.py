@@ -28,7 +28,6 @@ class PostAdmin(admin.ModelAdmin):
     filter_vertical = ('tags',)
 
 
-
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Reply)

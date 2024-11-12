@@ -35,11 +35,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar py-3 navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/technology.png' %}" alt="Logo" width="30" height="24"
                     class="d-inline-block align-text-top logo">
             </a>
-            <a class="navbar-brand" href="#">TechTalk</a>
+            <a class="navbar-brand" href="{% url 'home' %}">TechTalk</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

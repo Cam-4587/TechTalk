@@ -171,6 +171,17 @@ SUMMERNOTE_CONFIG = {
     'summernote': {
         # Change editor size
         'width': '100%',
+    'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+            ['table', ['table']],
+            ['view', ['fullscreen']],
+        ],
+
     },
 }
 

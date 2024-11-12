@@ -45,7 +45,7 @@ class CreateBlogPost(forms.ModelForm):
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'image': forms.ClearableFileInput(attrs={ "class": "form-control", "id": "formFile", "label": "Default file input example"}),
             'tags': forms.SelectMultiple(attrs={ "class": "form-select", "aria-label": "Default select example"}),
-            'intro': forms.Textarea(attrs={"class": "form-control"}),
+            'intro': forms.Textarea(attrs={"class": "form-control", 'rows': 2,'cols': 10,}),
             'content': SummernoteInplaceWidget(attrs={"class": "form-control"}),
         }
         
