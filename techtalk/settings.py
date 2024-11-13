@@ -13,9 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import cloudinary_storage
 import os
+import sys
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -111,6 +113,13 @@ CSRF_TRUSTED_ORIGINS = [
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 } 
+
+# Switch to SQLite for testing
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'test_db.sqlite3',
+    }
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
