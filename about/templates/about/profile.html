@@ -18,10 +18,12 @@
                 {% if user %}
                 <div class="d-flex flex-row gap-3 justify-content-center pe-4 mt-5">
                     <button class="btn btn-secondary">
-                        <a class="text-light text-decoration-none" href="{% url 'update-profile' %}"> Edit Profile here </a>
+                        <a class="text-light text-decoration-none" href="{% url 'update-profile' %}"> Edit Profile here
+                        </a>
                     </button>
                     <button class="btn btn-secondary">
-                        <a class="text-light text-decoration-none" href="{% url 'delete-profile' %}"> Delete Profile </a>
+                        <a class="text-light text-decoration-none" href="{% url 'delete-profile' %}"> Delete Profile
+                        </a>
                     </button>
                 </div>
                 {% endif %}
@@ -33,21 +35,18 @@
     </div>
 </div>
 {% else %}
-<div class="form-content">
-    <form method="post" enctype="multipart/form-data">
+<div class="w-100vw h-100vh d-flex flex-column align-items-center justify-content-center mt-3 mb-3">
+    <h1>Add your Profile here</h1>
+    <form class="w-75 bg-light border border-dark p-4 rounded border border-5" method="post"
+        enctype="multipart/form-data"> 
         {% csrf_token %}
-        <div class="form-row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="small mb-1">Change Profile image:</label>
-                    {{ profile_form.image }}
-                </div>
-                <hr>
-                <label class="small mb-1">Write your Profile Bio here:</label>
-                <div>{{ profile_form.bio }}</div>
-            </div>
-        </div>
-        <br><br>
+        <label class="mb-3">Change Profile image:</label>
+        <br>
+        {{ profile_form.image }}
+        <hr>
+        <label class="small mb-1">Write your Profile Bio here:</label>
+        <div>{{ profile_form.bio | safe }}</div>
+        <br>
         <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
     </form>
 </div>
