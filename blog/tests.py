@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .forms import CommentForm, CreateBlogPost, ReplyForm
@@ -46,6 +46,34 @@ class TestBlogViews(TestCase):
         self.assertIn(b"blog-title", response.content)
         self.assertIn(b"Blog content", response.content)
         self.assertTemplateUsed( response, "blog/post_blog.html",)
+        self.assertIsInstance(response.context['comment_form'], CommentForm, "This is a comment")
+        self.assertIsInstance(response.context['reply_form'], ReplyForm, "This is a reply")
+        
+    def test_successful_comment_submission(self):
+        post = Post.objects.create(title="Blog Title", content='This is a test comment.', author=self.user)
+        self.client.login(username="myUsername", password="myPassword")
+        post_data = { 'content': 'This is a test comment.'}
+        response = self.client.post(reverse('comment-sent', args=['blog-title']), post_data)
+        self.assertRedirects(response, "/blog-title/", 302)
+        
+        
+    def test_successful_reply_submission(self):
+        comment = Comment.objects.create(post=self.post, content='This is a test comment.', author=self.user)
+        self.client.login(username="myUsername", password="myPassword")
+        post_data = { 'content': 'This is a test Reply.'}
+        response = self.client.post(reverse('reply-sent', args=[comment.pk]), post_data)
+        self.assertRedirects(response, "/blog-title/", 302)
+        
+
+            
+        
+        
+        
+        
+        
+
+        
+   
 
 
 
