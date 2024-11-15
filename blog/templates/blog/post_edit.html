@@ -9,4 +9,12 @@
         <button class="btn btn-secondary" type="submit">Save changes</button>
     </form>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.multi-select').select2({
+            placeholder: "Select a state",
+            allowClear: true
+        });
+    });
+    </script>
 {% endblock %}

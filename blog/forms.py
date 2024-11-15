@@ -1,5 +1,6 @@
 from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
+from django.core.exceptions import ValidationError
 from .models import Comment, Reply, Post, Tag
 
 
@@ -44,14 +45,17 @@ class CreateBlogPost(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'image': forms.ClearableFileInput(attrs={ "class": "form-control", "id": "formFile", "label": "Default file input example"}),
-            'tags': forms.SelectMultiple(attrs={ "class": "form-select", "aria-label": "Default select example"}),
+            'tags': forms.SelectMultiple(attrs={ "class": "form-select multi-select"}),
             'intro': forms.Textarea(attrs={"class": "form-control", 'rows': 2,'cols': 10,}),
             'content': SummernoteInplaceWidget(attrs={"class": "form-control"}),
         }
         
         labels = {
-            'tags': 'Tags, hold down ctrl to select multiple tags:'
+            'tags': 'Select a maximum of 5 tags for your post:'
         }
         
-
+    def clean_tags(self):
+        tn = self.cleaned_data.get('tags', [])
+        if len(tn) > 5:
+            raise ValidationError('Invalid number of tags', code='invalid')
         
