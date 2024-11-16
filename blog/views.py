@@ -87,7 +87,7 @@ def CreatePost(request):
         if form.is_valid():
             blogpost = form.save(commit=False)
             blogpost.author = request.user       
-            blogpost.slug = slugify(Post.title)
+            blogpost.slug = slugify(blogpost.title)
             blogpost.save()
             form.save_m2m()
             return redirect('home') 

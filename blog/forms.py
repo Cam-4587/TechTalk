@@ -55,7 +55,11 @@ class CreateBlogPost(forms.ModelForm):
         }
         
     def clean_tags(self):
-        tn = self.cleaned_data.get('tags', [])
+        tn = self.cleaned_data.get('tags')
+        if not tn:  
+            tn = []
         if len(tn) > 5:
             raise ValidationError('Invalid number of tags', code='invalid')
+        return tn
+
         

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from.models import Profile
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from .models import Profile
 from .forms import UpdateProfileForm
 
 # Create your views here.
@@ -69,5 +71,18 @@ def DeleteProfile(request):
 
 def AboutUs(request):
     return render(request, "about/about_us.html")
+
+
+def profile_view(request, username=None):
+    if username:
+        user = get_object_or_404(User, username=username)
+        profile = get_object_or_404(Profile, user=user)
+    else:
+        if request.user.is_authenticated:
+            profile = request.user.profile
+        else:
+            raise Http404("User does not exist")
+
+    return render(request, 'about/public_profile.html', {'profile': profile})
 
 

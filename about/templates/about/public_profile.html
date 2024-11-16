@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if profile.bio %}
+<div class="container-fluid">
+    <div class="row offwhite m-5 p-5 shadow-lg rounded-3">
+        <div class="col-md-5">
+            <div class="text-center mt-3">
+                {% if "nobody" in profile.image.url %}
+                <img src="{% static 'images/nobody.jpg' %}" width="100%" alt="default image"
+                    class="shadow-lg rounded-3">
+                {% else %}
+                <img src="{{ profile.image.url}}" width="100%" alt="profile image" class="shadow-lg rounded-3">
+                {% endif %}
+                <h1 class="mt-3 fw-bold">{{ profile.user }}</h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>{{ profile.bio| safe }}</p>
+        </div>
+    </div>
+</div>
+{% else %}
+<main class="main-content">
+    <div class="d-flex flex-column">
+        <h1>There doesn't seem to be a <br> profile created for this User</h1>
+    </div>
+</main>
+{% endif %}
+{% endblock %}

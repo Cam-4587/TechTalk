@@ -7,7 +7,7 @@
         </a>
         <div class="comment-heading">
             <div class="comment-info">
-                <a href="#" class="comment-author"> {{ reply.author }}</a>
+                <a href="{% url 'userprofile' reply.author.username  %}" class="comment-author"> {{ reply.author }}</a>
                 <p class="m-0">
                     @{{ reply.created_on }}
                 </p>

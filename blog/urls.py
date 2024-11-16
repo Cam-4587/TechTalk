@@ -1,5 +1,7 @@
-from . import views
 from django.urls import path
+from . import views
+from about.views import profile_view
+
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
@@ -10,4 +12,5 @@ urlpatterns = [
     path('reply-delete/<uuid:pk>/', views.reply_delete, name='reply-delete'),
     path('post-delete/<slug:slug>/', views.post_delete, name='delete-post'),
     path('post-edit/<slug:slug>/', views.EditPost, name='edit-post'),
+    path('profile/<str:username>/', profile_view, name="userprofile"),
 ]  
