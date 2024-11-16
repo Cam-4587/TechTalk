@@ -7,8 +7,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('message', 'read',)
     readonly_fields = ['user','name', 'email','message']
     
-    from django.contrib import admin
-from .models import Contact
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('message', 'read',)

@@ -95,7 +95,7 @@ def CreatePost(request):
         form = CreateBlogPost()
     
     context = {
-        'blogpost': blogpost
+        'form': form
     }
     return render(request, 'blog/create_blog_post.html', context)
 
