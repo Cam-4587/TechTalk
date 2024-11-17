@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 

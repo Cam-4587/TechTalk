@@ -20,7 +20,7 @@ def profile(request):
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
             profile_form.save()
-            messages.success(request, 'Your profile has been updated successfully')
+            messages.success(request, 'Your profile has been created and is pending review')
             return redirect('users-profile')
 
     context =  {

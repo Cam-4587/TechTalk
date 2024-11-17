@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{% if profile.bio %}
+{% if profile.bio and profile.status == 1 %}
 <div class="container-fluid">
     <div class="row offwhite m-5 p-5 shadow-lg rounded-3">
         <div class="col-md-5">
@@ -23,7 +23,7 @@
 {% else %}
 <main class="main-content">
     <div class="d-flex flex-column">
-        <h1>There doesn't seem to be a <br> profile created for this User</h1>
+        <h1><strong>Profile not Found</strong></h1>
     </div>
 </main>
 {% endif %}

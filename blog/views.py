@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.utils.text import slugify
+from django.contrib import messages
 from .models import Post, Comment, Reply
 from .forms import CommentForm, ReplyForm, CreateBlogPost
 import about
@@ -40,6 +41,7 @@ def comment_sent(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
+            messages.success(request, 'Comment added successfully')
             return redirect('post_blog', slug=post.slug)
     return redirect('post_blog', slug=post.slug)
 
@@ -50,6 +52,7 @@ def comment_delete(request, pk, slug):
 
     if request.method == "POST":
         comment.delete()
+        messages.success(request, 'Comment was deleted')
         return redirect('post_blog', slug=post.slug)
 
     return render(request, 'blog/comment_delete.html', {'comment': comment, 'post': post})
@@ -63,7 +66,8 @@ def reply_sent(request, pk):
         if form.is_valid:
             reply = form.save(commit=False)
             reply.author = request.user
-            reply.reply = comment            
+            reply.reply = comment    
+            messages.success(request, 'Reply added successfully')        
             reply.save()
             return redirect('post_blog', slug=post.slug)
     return redirect('post_blog', slug=post.slug)
@@ -74,6 +78,7 @@ def reply_delete(request, pk):
 
     if request.method == "POST":
         reply.delete()
+        messages.success(request, 'Reply deleted successfully')  
         return redirect('post_blog', slug=post.slug)
 
     return render(request, 'blog/reply_delete.html', {'reply': reply, 'post': post})
@@ -90,6 +95,7 @@ def CreatePost(request):
             blogpost.slug = slugify(blogpost.title)
             blogpost.save()
             form.save_m2m()
+            messages.success(request, 'Post Submitted and awaiting approval')
             return redirect('home') 
     else: 
         form = CreateBlogPost()

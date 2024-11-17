@@ -357,7 +357,22 @@ footer {
   background-color: #FAF9F6;
 }
 
-
+/* Alert message styling */
+.alert-container{
+  width:100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+.alert-message {
+  background: rgb(219, 215, 215);
+  width:auto;
+  padding:30px;
+}
+.alert-close-button{
+  float:right;
+  padding-left:20px;
+  font-weight:300;
+}
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {

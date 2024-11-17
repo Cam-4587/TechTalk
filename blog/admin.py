@@ -27,12 +27,7 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     filter_vertical = ('tags',)
     list_filter = ('status',)
-    
-    def save_model(self, request, obj, form, change):
-        if obj.tags.count() > 5:
-            raise ValidationError('Cannot add more than 5 tags to a post')
-        super().save_model(request, obj, form, change)
-
+    list_display = ('author', 'status', 'created_on', 'updated_on')
 
 
 admin.site.register(Post, PostAdmin)
