@@ -19,22 +19,29 @@ body {
   min-height: 100vh;
 }
 
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
 footer {
   margin-top: auto;
 }
 
 /*Generic sizing and positioning for all pages*/
 
-.card {
+.card-home-page {
   width: 25rem;
-  padding:25px;
+  padding: 25px;
   margin: 40px;
   box-shadow: 5px 10px 10px 5px #888888;
 }
 
-.row{
+.row {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 
 .tag {
@@ -48,8 +55,381 @@ footer {
   cursor: pointer;
 }
 
+/*Blog display styling and positioning*/
+
+.blog-display-container {
+  width: 70%;
+}
+
+.blog-card {
+  background-color: #f5f5f5;
+}
+
+.blog-display-img {
+  width: 60%;
+}
+
+.blog-display-txt {
+  width: 90%;
+}
+
+
+/*Login page styling*/
+
+.login-logo {
+  height: 45px;
+  width: 45px;
+}
+
+/* Comments and replies styling */
+
+.comment-reply-button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 4px 8px;
+  color: rgba(0, 0, 0, 0.85);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.comment-reply-button:hover,
+.comment-reply-button:focus,
+.comment-reply-button:active {
+  cursor: pointer;
+  background-color: #ecf0f1;
+}
+
+
+.comment-thread {
+  width: 800px;
+  max-width: 100%;
+  margin: auto;
+  padding: 0 30px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  /* Removes margin collapse */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Comment */
+
+.comment {
+  position: relative;
+  margin: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.comment-body {
+  margin-left: 10px;
+}
+
+.comment-heading {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-size: 14px;
+}
+
+.comment-info {
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 10px;
+}
+
+.comment-author {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.comment-author:hover {
+  text-decoration: underline;
+}
+
+.replies {
+  margin-left: 20px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  margin-left: 70px;
+  width: 80%;
+}
+
+.reply-button {
+  margin-top: 5px;
+}
+
+.comment-border-link {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  width: 12px;
+  height: calc(100% - 50px);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+}
+
+.comment-border-link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Comment and Reply delete form */
+
+.delete-form {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/*Profile page styling*/
+.profile-container{
+  margin-top: -20px;
+  padding-top:20px;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.profile-img{
+  width:60%;
+}
+.profile-txt{
+  width:70%;
+  padding-bottom:20px;
+
+}
+/*About us Page*/
+
+.about-us-section {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.about-us-container {
+  width: 80%;
+  display: block;
+  margin: auto;
+  padding: 40px;
+}
+
+.about-us-content-section {
+  float: left;
+  width: 55%;
+}
+
+.about-us-image-section {
+  float: right;
+  width: 40%;
+}
+
+.about-us-image-section img {
+  width: 90%;
+  height: auto;
+}
+
+.about-us-title {
+  text-align:center;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+
+.about-us-content p {
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-size: 17px;
+}
+
+.about-us-button {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-button a {
+  background-color: #3d3d3d;
+  padding: 12px 40px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+}
+
+.about-us-button a:hover {
+  background-color: #a52a2a;
+  color: #fff;
+}
+
+/* Contact section styling*/
+
+.contact-form,
+.contact-info-text {
+  font-family: Poppins;
+}
+
+#map {
+  height:300px;
+  width:100%;
+  margin-top:50px;
+}
+
+/* Profile page offwhite colour */
+
+.offwhite{
+  background-color: #FAF9F6;
+}
+
+/* Alert message styling */
+.alert-container{
+  width:100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+.alert-message {
+  background: rgb(219, 215, 215);
+  width:auto;
+  padding:30px;
+}
+.alert-close-button{
+  float:right;
+  padding-left:20px;
+  font-weight:300;
+}
+/*Media queries for mobile styling*/
+
 @media only screen and (max-width: 768px) {
-  .card {
+
+  /*Home Page*/
+  .card-home-page {
     width: 80%;
   }
+
+  /*Blog Display Page*/
+
+  .blog-display-img {
+    min-width: 90%;
+  }
+
+  .blog-display-container {
+    min-width: 100%;
+  }
+
+  .container {
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: 50px;
+  }
+
+  .content-section {
+    float: none;
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .image-section {
+    float: none;
+    width: 100%;
+  }
+
+  .image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .content-section .title {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 19px;
+  }
+
+  .content-section .content .button {
+    text-align: center;
+  }
+
+  .content-section .content .button a {
+    padding: 9px 30px;
+
+  }
+
+  .content-section .social {
+    text-align: center;
+  }
+
+  /*About us Page*/
+  .about-us-container {
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: 50px;
+  }
+
+  .about-us-content-section {
+    float: none;
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .about-us-image-section {
+    float: none;
+    width: 100%;
+  }
+
+  .about-us-image-section img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .about-us-title {
+    text-align: center;
+    font-size: 19px;
+  }
+
+  .about-us-content .button {
+    text-align: center;
+  }
+
+  .about-us-button a {
+    padding: 9px 30px;
+
+  }
+  /*Profile page styling*/
+.profile-img{
+  width:90%;
+}
+.profile-txt{
+  width:90%}
+
 }

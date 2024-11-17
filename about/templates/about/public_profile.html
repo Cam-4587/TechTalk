@@ -2,20 +2,19 @@
 {% load static %}
 {% block content %}
 {% if profile.bio and profile.status == 1 %}
-<div class="container-fluid">
-    <div class="row offwhite m-5 p-5 shadow-lg rounded-3">
-        <div class="col-md-5">
-            <div class="text-center mt-3">
-                {% if "nobody" in profile.image.url %}
-                <img src="{% static 'images/nobody.jpg' %}" width="100%" alt="default image"
-                    class="shadow-lg rounded-3">
-                {% else %}
-                <img src="{{ profile.image.url}}" width="100%" alt="profile image" class="shadow-lg rounded-3">
-                {% endif %}
-                <h1 class="mt-3 fw-bold">{{ profile.user }}</h1>
-            </div>
+<div class="profile-container container-fluid">
+    <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center">
+            {% if "nobody" in profile.image.url %}
+            <img src="{% static 'images/nobody.jpg' %}" width="100%" alt="default image"
+                class="profile-img shadow-lg rounded-3 img-thumbnail">
+            {% else %}
+            <img src="{{ profile.image.url}}" width="100%" alt="profile image"
+                class="profile-img shadow-lg rounded-3 img-thumbnail">
+            {% endif %}
+            <h1 class="">{{ profile.user }}</h1>
         </div>
-        <div class="col-md-6">
+        <div class="profile-txt">
             <p>{{ profile.bio| safe }}</p>
         </div>
     </div>

@@ -210,72 +210,20 @@ footer {
 }
 
 /*Profile page styling*/
-.section {
+.profile-container{
+  margin-top: -20px;
+  padding-top:20px;
   width: 100%;
-  min-height: 100vh;
-  background-color: #ddd;
+  background-color: whitesmoke;
 }
-
-.container {
-  width: 80%;
-  display: block;
-  margin: auto;
-  padding-top: 30px;
+.profile-img{
+  width:60%;
 }
+.profile-txt{
+  width:70%;
+  padding-bottom:20px;
 
-
-.content-section {
-  float: right;
-  width: 55%;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
-
-.image-section {
-  float: left;
-  width: 40%;
-}
-
-.image-section img {
-  width: 90%;
-  height: auto;
-}
-
-.content-section .title {
-  text-transform: uppercase;
-  font-size: 28px;
-}
-
-.content-section .content h3 {
-  margin-top: 20px;
-  color: #5d5d5d;
-  font-size: 19px;
-}
-
-.content-section .content p {
-  margin-top: 10px;
-  font-family: sans-serif;
-  font-size: 17px;
-}
-
-.content-section .content .button {
-  margin-top: 30px;
-}
-
-.content-section .content .button a {
-  background-color: #3d3d3d;
-  padding: 12px 40px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 25px;
-  letter-spacing: 1.5px;
-}
-
-.content-section .content .button a:hover {
-  background-color: #a52a2a;
-  color: #fff;
-}
-
 /*About us Page*/
 
 .about-us-section {
@@ -477,5 +425,11 @@ footer {
     padding: 9px 30px;
 
   }
+  /*Profile page styling*/
+.profile-img{
+  width:90%;
+}
+.profile-txt{
+  width:90%}
 
 }
