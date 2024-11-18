@@ -88,7 +88,7 @@ def CreatePost(request):
     blogpost = CreateBlogPost()
     
     if request.method == 'POST':
-        form = CreateBlogPost(request.POST)
+        form = CreateBlogPost(request.POST, request.FILES)
         if form.is_valid():
             blogpost = form.save(commit=False)
             blogpost.author = request.user       
