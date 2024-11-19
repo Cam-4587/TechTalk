@@ -189,7 +189,6 @@ SUMMERNOTE_CONFIG = {
             ['height', ['height']],
             ['view', ['fullscreen']],
         ],
-
     },
 }
 

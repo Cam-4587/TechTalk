@@ -50,9 +50,6 @@ class CreateBlogPost(forms.ModelForm):
             'content': SummernoteInplaceWidget(attrs={"class": "form-control"}),
         }
         
-        labels = {
-            'tags': 'Select a maximum of 5 tags for your post:'
-        }
         
     def clean_tags(self):
         tn = self.cleaned_data.get('tags')

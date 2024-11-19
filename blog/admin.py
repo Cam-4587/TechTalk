@@ -15,6 +15,7 @@ class TagAdmin(admin.ModelAdmin):
     
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
+    list_display = ('author', 'post',)
     inlines = [ReplyItemInline]
     
 class CommentItemInline(admin.TabularInline):
@@ -32,5 +33,4 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(Reply)
 admin.site.register(Tag,TagAdmin)
