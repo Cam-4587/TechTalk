@@ -1,131 +1,141 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **TechTalk**
 
-Welcome Cam-4587 Conroy,
+- TechTalk is an online blog that allows registered users to create a Profile so that they can make their own blog posts as well as a comment secton for both comments and replies.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+- Here is the live version of the website:
+[Techtalk](https://techtalk-3a394e241470.herokuapp.com/about/create-blog-post/)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+Placeholder for am I responsive image
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# **User Stories**
 
-`python3 -m http.server`
+### **Users**
+- As a Site User I want to I can register an account so that I can access the websites features concerning blog posts, comments and reply.
 
-A blue button should appear to click: _Make Public_,
+- As a registered user I want  to edit tags on a blog post after publishing it so that I can update or improve the categorization of my content.
 
-Another blue button should appear to click: _Open Browser_.
+- As a registered user I want  to add up to 5 tags to my blog posts so that readers can understand the content of the post before reading.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+- As a registered user I want  to send a message to the site admin via email so that I can contact them with questions or concerns.
 
-A blue button should appear to click: _Make Public_,
+- As a site user I want to add comments underneath blog posts so that I can share relevant information or my opinions about the blog post.
 
-Another blue button should appear to click: _Open Browser_.
+- As a registered user I want to create blog posts with content and an optional image so that I can share my thoughts and interests with other users.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- As a registered user I want to update my profile image and profile content so that I can keep my information up-to-date.
+- As a Site User I want to I can register an account so that I can access the websites features concerning blog posts, comments and reply
 
-To log into the Heroku toolbelt CLI:
+- As a registered user I want to reply to comments on blog posts so that I can engage in conversation with other users.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- As a site user I want to view comments and toggle replies under a blog post so that I can follow the conversation and participate if needed.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
 
-### Connecting your Mongo database
+### **Admin**
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+- As an admin I want to create, read, update, and delete posts so that I can manage posts in the Admin panel
 
-------
+- As an admin I want to  manage comments in the Admin panel so that I can manage comments on all blog posts
 
-## Release History
+- As an admin I want to  mark emails sent by users as read so that I can keep track of which messages have already been reviewed.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+ - As an admin I want to  view comments on blog posts so that I can monitor and manage user discussions.
 
-**June 18, 2024,** Add Mongo back into template
+- As an admin I want to create, read, update, and delete Replies so that I can manage replies in the Admin panel
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+- As a admin I want to  approve or disapprove comments on blog posts so that I can filter out inappropriate comments.
 
-**May 28 2024:** Fix Mongo and Links installs
+# Wireframes 
+[Wireframes here](docs/read_me/wireframes.pdfwireframes.pdf) 
 
-**April 26 2024:** Update node version to 16
+These wireframes were created with balsamiq.
 
-**September 20 2023:** Update Python version to 3.9.17.
+# Features
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Current features
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### <ins>Navigation bar</ins>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+the navigation bar allows users to navigate easily across all pages and the navigation buttons update depending on whether or not the user is logged in or not.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+| Nav Link              |Not logged in  |Logged in as user|Logged in as admin
+|:-------------         |:------------- |:----------------|:------------- |
+|Logo(back to home)     |&#9989;        |&#9989;          |&#9989;
+|Home                   |&#9989;        |&#9989;          |&#9989;
+|Contact                |&#9989;        |&#9989;          |&#9989;
+|My Profile             |&#10060;       |&#9989;          |&#9989;
+|Sign Out               |&#10060;       |&#9989;          |&#9989;
+|Sign up                |&#9989;        |&#10060;         |&#10060;
+|Log In                |&#9989;        |&#10060;         |&#10060;
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### <ins>**User registration not required**</ins>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+I wanted to give non registered users the ability to search through and read other users blogs and have the ability to contact the admin so that the blog is made more accessible. 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### <ins>**User Profile creation**</ins>
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- At the end of the navigation bar and in the about use page there are buttons that can navigate you to the signup page where you enter the following things to create an account:
+    + a Username
+    + an email address (optional)
+    + a Password
+    + Password confirmation
+- Following the creation of User, a profile instance is created.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Once the user has created an account they can then create/update their own Profile, Create/update their own Posts and add comments and replies to other users posts and comments.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### <ins>Home page</ins>
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
++ The Home page shows a generic list view of all of the published blogs with a button to take the user to that blog post.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    - Within the blog post view you have the blog contents with a comment section below.
+    - The comment section comprises of a comment form and a button to toggle through replies to that comment.
+    - If the blog posts author corrosponds to the acitve user then an edit profile page and a delete profile page button will display.
+    - if the comment/reply author corrosponds to the user then a delete button for the comment/reply will appear.
+    - Usernames displayed next to comments and replies also act as links to a public Profile page that can be viewed by other users.
+    - If the user has no profile or it is pending review then it will display "Profile not found".
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### <ims>About us page</ims>
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
++ The about us page gives a small paragraph of text that acts that introduces the user to the website and what the website is about located next to an image.
 
-------
++ if the user is not signed up up then a sign up button will appear redirecting the user to the sign up page.
 
-## FAQ about the uptime script
+### <ins>Contact page</ins>
 
-**Why have you added this script?**
++ The contact page contains a contact form along with a map and contact information.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+    - The contact form requires the user to enter a name, email and their contact information.
 
-**How will this affect me?**
+    - The contact form can be used by both registered and unregistered users so it can be used as boh a way to contact admin for collaboration purposes and to highlight and issues with the content.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### <ins>Profile page</ins>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- When a user instance is created the User's username is displayed in the navigation bar where they can go to create their profile.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- The user will first be shown a create profile form where they can upload an image and a bio for other uses to see.
 
-**So….?**
+- After submission the profile will be pending review with a message on their profile page saying that their profile is pending review.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Once the users profile has been reviewed and published it will be visible to the user where they can either delete it or edit their own profile.
 
-**Can I opt out?**
+### <ims>Create blog post page</ims>
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
++ Next to the user's profile is a path to create your own blog post.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
++ You get redirected to the blog post form where you fill in:
+- The blog title
+- An image file
+- Up to 5 tags to associated your blog post with.
+- An introduction secton that will have a maximum of 150 characters
+- A summernote field to add the users own blog content.
 
-**Anything more?**
++ Once the user has submitted their blog post it will be pending review by the admin before it can be published.
++ Once it has been published it can be edited and deleted by the user. 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+# <ins>Database</ins>
+A postgres database was used in the creation of this website. Below shows an image of how the database tables relate to one another. 
+[Entity relationship diagrams](docs/read_me/erd.jpg)
 
-Happy coding!
+
+
