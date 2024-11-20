@@ -8,6 +8,10 @@
             <div class="about-us-title">
                 <h1>About Us</h1>
             </div>
+
+            <!-- Text content-->
+
+
             <div class="about-us-content">
                 <p>TechTalk is a blog for users to add blog posts about topics associated with technology. Users can
                     look at different blog posts created by users
@@ -20,6 +24,9 @@
                     <li>Hands-on guides for DIY projects, software tools, and productivity hacks</li>
                     <li>Thought-provoking discussions on the future of technology</li>
                 </ul>
+
+                <!--Sign up button to direct user to Sign up page-->
+
                 {% if not user.is_authenticated %}
                 <div class="about-us-button">
                     <a href="{% url 'account_signup' %}">Sign Up Here</a>
@@ -28,6 +35,9 @@
             </div>
         </div>
     </div>
+
+
+    <!--Image-->
     <div class="about-us-image-section">
         <img src="{% static 'images/59869.jpg' %}" alt="about-us-image">
     </div>

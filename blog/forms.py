@@ -5,6 +5,9 @@ from .models import Comment, Reply, Post, Tag
 
 
 class CommentForm(forms.ModelForm):
+    """ 
+    Comment form
+    """
     class Meta:
         model = Comment
         fields = ('content',)
@@ -23,6 +26,9 @@ class CommentForm(forms.ModelForm):
         }
 
 class ReplyForm(forms.ModelForm):
+    """ 
+    Reply form
+    """
     class Meta:
         model = Reply
         fields = ['content']
@@ -38,6 +44,9 @@ class ReplyForm(forms.ModelForm):
         }
 
 class CreateBlogPost(forms.ModelForm):
+    """
+    Blog post creation form
+    """
     class Meta:
         model = Post
         fields = ['title', 'image', 'tags', 'intro',  'intro', 'content']

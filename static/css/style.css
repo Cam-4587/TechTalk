@@ -30,7 +30,7 @@ footer {
   margin-top: auto;
 }
 
-/*Generic sizing and positioning for all pages*/
+/*Home Page styling and Positioning*/
 
 .card-home-page {
   padding: 25px;
@@ -38,10 +38,6 @@ footer {
   box-shadow: 5px 10px 10px 5px #888888;
 }
 
-.row {
-  display: flex;
-  justify-content: space-evenly;
-}
 
 .tag {
   background: #cccccc;
@@ -51,10 +47,12 @@ footer {
   color: #fff;
   padding: 2px 10px;
   text-transform: uppercase;
-  cursor: pointer;
 }
 
-/*Blog display styling and positioning*/
+
+
+
+/*Blog Post display styling and positioning*/
 
 .blog-display-container {
   width: 70%;
@@ -109,8 +107,6 @@ footer {
   padding: 0 30px;
   background-color: #fff;
   border: 1px solid transparent;
-  /* Removes margin collapse */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.4;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -127,8 +123,6 @@ footer {
   height: 1px;
   overflow: hidden;
 }
-
-/* Comment */
 
 .comment {
   position: relative;
@@ -196,6 +190,11 @@ footer {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
 /* Comment and Reply delete form */
 
 .delete-form {
@@ -208,7 +207,13 @@ footer {
   border-radius: 20px;
 }
 
-/*Profile page styling*/
+
+
+
+
+/*Profile page styling and positioning*/
+
+
 .profile-container{
   margin-top: -20px;
   padding-top:20px;
@@ -223,7 +228,14 @@ footer {
   padding-bottom:20px;
 
 }
-/*About us Page*/
+
+.offwhite{
+  background-color: #FAF9F6;
+}
+
+
+
+/*About us Page styling and positioning*/
 
 .about-us-section {
   width: 100%;
@@ -285,7 +297,8 @@ footer {
   color: #fff;
 }
 
-/* Contact section styling*/
+
+/* Contact section styling and positioning*/
 
 .contact-form,
 .contact-info-text {
@@ -298,13 +311,10 @@ footer {
   margin-top:50px;
 }
 
-/* Profile page offwhite colour */
 
-.offwhite{
-  background-color: #FAF9F6;
-}
 
 /* Alert message styling */
+
 .alert-container{
   width:100%;
   justify-content: center;
@@ -320,6 +330,9 @@ footer {
   padding-left:20px;
   font-weight:300;
 }
+
+
+
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {
@@ -337,51 +350,6 @@ footer {
 
   .blog-display-container {
     min-width: 100%;
-  }
-
-  .container {
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding-top: 50px;
-  }
-
-  .content-section {
-    float: none;
-    width: 100%;
-    display: block;
-    margin: auto;
-  }
-
-  .image-section {
-    float: none;
-    width: 100%;
-  }
-
-  .image-section img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: auto;
-  }
-
-  .content-section .title {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 19px;
-  }
-
-  .content-section .content .button {
-    text-align: center;
-  }
-
-  .content-section .content .button a {
-    padding: 9px 30px;
-
-  }
-
-  .content-section .social {
-    text-align: center;
   }
 
   /*About us Page*/
@@ -424,7 +392,9 @@ footer {
     padding: 9px 30px;
 
   }
-  /*Profile page styling*/
+
+  
+  /*Profile page Styling*/
 .profile-img{
   width:90%;
 }

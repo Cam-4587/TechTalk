@@ -11,14 +11,14 @@
                 <header class="mb-4">
                     <!-- Post title-->
                     <h1 class="fw-bolder mb-1 text-decoration-underline">{{post.title}}</h1>
-                    <!-- Post meta content-->
+                    <!-- Post author-->
                     <div class="text-muted fst-italic mb-2">Posted by {{post.author}}</div>
-                    <!-- Post categories-->
+                    <!-- Post tags-->
                     {% for tag in post.tags.all %}
                     <a class="badge bg-secondary text-decoration-none link-light">{{ tag.tag }}</a>
                     {% endfor %}
                 </header>
-                <!-- Preview image figure-->
+                <!-- Post image-->
                 {% if "placeholder" in post.image.url %}
                 <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'images/59869.jpg' %}"
                         alt="placeholder image" /></figure>
@@ -26,6 +26,10 @@
                 <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.image.url }}" alt="blog post image" />
                 </figure>
                 {% endif %}
+
+                <!--Edit and Delete buttons-->
+
+
                 <div class="d-flex gap-3 justify-content-center">
                     {% if user.is_authenticated and post.author == user %}
                     <div class="mb-2">
@@ -41,10 +45,15 @@
                     {% endif %}
                 </div>
             </article>
+
+
             <!-- Post content-->
             <section class="mb-5 mt-3" enctype="multipart/form-data">
                 {{post.content | safe}}
             </section>
+
+            <!--Indicaiton of when the blog post was created and last updated-->
+
             <div class="d-flex justify-content-center gap-5">
                 <div>
                     <p><strong><em>Created at</em></strong></p>
@@ -85,6 +94,4 @@
 {% for comment in post.comments.all %}
 {% include 'blog/comment.html' %}
 {% endfor %}
-</div>
-</div>
 {% endblock %}

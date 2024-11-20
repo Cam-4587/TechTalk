@@ -4,6 +4,9 @@ from django_summernote.widgets import SummernoteInplaceWidget
 from .models import Profile
 
 class UpdateProfileForm(forms.ModelForm):
+    """ 
+    Form to alter user's profile
+    """
     model = Profile
     
     widgets = {

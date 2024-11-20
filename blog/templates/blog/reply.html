@@ -1,7 +1,9 @@
 {% load static %}
 
 <div class="replies">
-    <!-- Comment 2 start -->
+
+    <!-- Reply starts -->
+
     <div class="comment" id="comment-2">
         <a href="#comment-2" class="comment-border-link">
         </a>
@@ -17,6 +19,10 @@
             <p>
                 {{ reply.content }}
             </p>
+            <!--Reply ends-->
+
+
+            <!--Delete button-->
             {% if user.is_authenticated and reply.author == user %}
             <div>
                 <a class="cursor-pointer" href="{% url 'reply-delete' reply.id %}" hx-target="#reply-{{ reply.id }}"

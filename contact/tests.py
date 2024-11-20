@@ -2,12 +2,12 @@ from django.test import TestCase
 from .forms import ContactForm
 
 
-# # Create your tests here.
+# Create your tests here.
 class TestContactForm(TestCase):
 
     def test_form_is_valid(self):
         
-        """ Test for all fields"""
+        """ Test for all fields in contact form"""
         
         form = ContactForm({
             'name': 'testuser',
