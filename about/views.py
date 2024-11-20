@@ -1,14 +1,31 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views import generic
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from .models import Profile
+from blog.models import Post
 from .forms import UpdateProfileForm
-
 # Create your views here.
+class UsersPostList(generic.ListView):
+    
+    """ 
+    Displays users blog posts
+    """
+    
+    template_name = "about/users_blog_posts.html"
+    context_object_name = "posts"
+    paginate_by = 6
+
+    def get_queryset(self):
+        username = self.kwargs['username']
+        user = get_object_or_404(User, username=username)
+        return Post.objects.filter(author=user, status=1)
+    
 @login_required
 def profile(request):
+    
     """
     Renders the Profile page
     """
@@ -35,7 +52,7 @@ def profile(request):
 
 def UpdateProfile(request):
     """
-    Updates the Users Profile
+    Updates the users Profile
     """
     # Ensure the profile is fetched using the user relationship
     profile, created = Profile.objects.get_or_create(user=request.user)
@@ -57,9 +74,11 @@ def UpdateProfile(request):
     return render(request, "about/profile_edit.html", context)
 
 def DeleteProfile(request):
+    
     """
     Deletes the Users Profile
     """
+    
     profile, created = Profile.objects.get_or_create(user=request.user)
     profile_form = UpdateProfileForm(instance=profile)
     
@@ -70,6 +89,11 @@ def DeleteProfile(request):
 
 
 def AboutUs(request):
+    
+    """ 
+    Displays the About us page 
+    """
+    
     return render(request, "about/about_us.html")
 
 

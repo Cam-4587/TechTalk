@@ -17,6 +17,16 @@
         <div class="profile-txt">
             <p>{{ profile.bio| safe }}</p>
         </div>
+        <div class="d-flex justify-content-center gap-5">
+            <div>
+                <p><strong><em>Created at</em></strong></p>
+                <em>{{ post.created_on }}</em>
+            </div>
+            <div>
+                <p><strong><em>Last Updated at</em></strong></p>
+                <em>{{ post.updated_on }}</em>
+            </div>
+        </div>
     </div>
 </div>
 {% else %}

@@ -2,77 +2,89 @@
 {% load static %}
 {% block content %}
 
-    <div class="container mt-5 ">
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- Post content-->
-                <article>
-                    <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1 text-decoration-underline">{{post.title}}</h1>
-                        <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Posted by {{post.author}}</div>
-                        <!-- Post categories-->
-                        {% for tag in post.tags.all %}
-                        <a class="badge bg-secondary text-decoration-none link-light" >{{ tag.tag }}</a>
-                        {% endfor %}
-                    </header>
-                    <!-- Preview image figure-->
-                    {% if "placeholder" in post.image.url %}
-                    <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'images/59869.jpg' %}"
-                            alt="placeholder image" /></figure>
-                    {% else %}
-                    <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.image.url }}" alt="blog post image" />
-                    </figure>
-                    {% endif %}
-                    <div class="d-flex gap-3 justify-content-center">
-                        {% if user.is_authenticated and post.author == user %}
-                        <div class="mb-2">
-                            <a class="text-decoration-none comment-reply-button" href="{% url 'delete-post' post.slug %}">Delete
-                                Post</a>
-                        </div>
-                        <div class="mb-2">
-                            <a class="text-decoration-none comment-reply-button" href="{% url 'edit-post' post.slug  %}">Edit
-                                Post</a>
-                        </div>
-                        {% endif %}
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1 text-decoration-underline">{{post.title}}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posted by {{post.author}}</div>
+                    <!-- Post categories-->
+                    {% for tag in post.tags.all %}
+                    <a class="badge bg-secondary text-decoration-none link-light">{{ tag.tag }}</a>
+                    {% endfor %}
+                </header>
+                <!-- Preview image figure-->
+                {% if "placeholder" in post.image.url %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'images/59869.jpg' %}"
+                        alt="placeholder image" /></figure>
+                {% else %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.image.url }}" alt="blog post image" />
+                </figure>
+                {% endif %}
+                <div class="d-flex gap-3 justify-content-center">
+                    {% if user.is_authenticated and post.author == user %}
+                    <div class="mb-2">
+                        <a class="text-decoration-none comment-reply-button"
+                            href="{% url 'delete-post' post.slug %}">Delete
+                            Post</a>
                     </div>
-                </article>
-                <!-- Post content-->
-                <section class="mb-5 mt-3" enctype="multipart/form-data">
-                    {{post.content | safe}}
-                </section>
+                    <div class="mb-2">
+                        <a class="text-decoration-none comment-reply-button"
+                            href="{% url 'edit-post' post.slug  %}">Edit
+                            Post</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </article>
+            <!-- Post content-->
+            <section class="mb-5 mt-3" enctype="multipart/form-data">
+                {{post.content | safe}}
+            </section>
+            <div class="d-flex justify-content-center gap-5">
+                <div>
+                    <p><strong><em>Created at</em></strong></p>
+                    <em>{{ post.created_on }}</em>
+                </div>
+                <div>
+                <p><strong><em>Last Updated at</em></strong></p>
+                <em>{{ post.updated_on }}</em>
+                </div>
             </div>
         </div>
-        <hr>
     </div>
+    <hr>
+</div>
 
-    <!--Comment Section-->
-    <div class="comment-thread mt-5 mb-5">
-        {% if user.is_authenticated %}
-        <div class="comment">
-            <form method="POST" action="{% url 'comment-sent' post.slug %}">
+<!--Comment Section-->
+<div class="comment-thread mt-5 mb-5">
+    {% if user.is_authenticated %}
+    <div class="comment">
+        <form method="POST" action="{% url 'comment-sent' post.slug %}">
+            <div>
                 <div>
-                    <div>
-                        <h4>Post your comment:</h4>
-                        {% csrf_token %}
-                        {{comment_form.as_p}}
-                        <button class="block reply-button comment-reply-button" type="submit">Add Comment
-                        </button>
-                    </div>
+                    <h4>Post your comment:</h4>
+                    {% csrf_token %}
+                    {{comment_form.as_p}}
+                    <button class="block reply-button comment-reply-button" type="submit">Add Comment
+                    </button>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-    {% else %}
-    <div class="card blog-card shadow p-3 mt-3">
-        <p>Log in to leave a comment</p>
-    </div>
-    {% endif %}
-    {% for comment in post.comments.all %}
-    {% include 'blog/comment.html' %}
-    {% endfor %}
+</div>
+{% else %}
+<div class="card blog-card shadow p-3 mt-3">
+    <p>Log in to leave a comment</p>
+</div>
+{% endif %}
+{% for comment in post.comments.all %}
+{% include 'blog/comment.html' %}
+{% endfor %}
 </div>
 </div>
 {% endblock %}

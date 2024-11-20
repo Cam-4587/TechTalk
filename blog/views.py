@@ -7,7 +7,12 @@ from .forms import CommentForm, ReplyForm, CreateBlogPost
 import about
 import uuid
 # Create your views here.
+
+from django.views import generic
 class PostList(generic.ListView):
+    
+    """ Display published blog posts on the home page"""
+    
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6  
@@ -15,6 +20,9 @@ class PostList(generic.ListView):
 
 
 def post_blog(request, slug):
+    
+    """ Display individual blog post with comment section at the bottom"""
+    
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     comment_form = CommentForm()
@@ -33,6 +41,9 @@ def post_blog(request, slug):
     )
     
 def comment_sent(request, slug):
+    
+    """ Sends comment form and redirects user back to blog post """
+    
     post = get_object_or_404(Post, slug=slug)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -47,6 +58,9 @@ def comment_sent(request, slug):
 
 
 def comment_delete(request, pk, slug):
+    
+    """ deletes comment and redirects user back to blog post """
+    
     post = get_object_or_404(Post, slug=slug)
     comment = get_object_or_404(Comment, id=pk, author=request.user)
 
@@ -58,6 +72,9 @@ def comment_delete(request, pk, slug):
     return render(request, 'blog/comment_delete.html', {'comment': comment, 'post': post})
 
 def reply_sent(request, pk):
+    
+    """ Sends Reply form and redirects user back to blog post """
+    
     comment= get_object_or_404(Comment, id=pk)
     post = comment.post
     
@@ -85,6 +102,9 @@ def reply_delete(request, pk):
 
 
 def CreatePost(request):
+    
+    """ Sends Post form and redirects user back to home page """
+    
     blogpost = CreateBlogPost()
     
     if request.method == 'POST':
@@ -107,6 +127,9 @@ def CreatePost(request):
 
 
 def post_delete(request, slug):
+    
+    """ Deletes blog post form and redirects user back to home page """
+    
     post = get_object_or_404(Post, slug=slug)
 
     if request.method == "POST":
@@ -116,6 +139,9 @@ def post_delete(request, slug):
     return render(request, 'blog/delete_blog_post.html', {'post': post})
 
 def EditPost(request, slug):
+    
+    """ Edits Users blog post and redirects user back to their blog post """
+    
     post = get_object_or_404(Post, slug=slug)
     
     if request.method == 'POST':

@@ -70,6 +70,10 @@
                     <li class="nav-item">
                         <strong><a class="nav-link font-weight-bold" href="{% url 'create-blog-post' %}">Create a Blog Post</a></strong>
                     </li>
+                    <div class="vr"></div>
+                    <li class="nav-item">
+                        <strong><a class="nav-link font-weight-bold" href="{% url 'users-blog-posts' username=request.user.username %}">Your Blog Posts</a></strong>
+                    </li>
                     {% endif %}
                 </ul>
                 <span class=" navbar-nav">

@@ -7,6 +7,11 @@ from .forms import ContactForm
 # Create your views here.
 
 def ContactFormView(request):
+    
+    """
+    Sends contact form and redirects user back to contact page
+    """
+    
     contactform = ContactForm()
     if request.method == "POST":
         contactform = ContactForm(request.POST)
