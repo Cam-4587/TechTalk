@@ -3,7 +3,7 @@
 - TechTalk is an online blog that allows registered users to create a Profile so that they can make their own blog posts as well as a comment secton for both comments and replies.
 
 - Here is the live version of the website:
-[Techtalk](https://techtalk-3a394e241470.herokuapp.com/about/create-blog-post/)
+[Techtalk](https://techtalk-3a394e241470.herokuapp.com)
 
 Placeholder for am I responsive image
 
@@ -39,11 +39,15 @@ Placeholder for am I responsive image
 
 - As an admin I want to  mark emails sent by users as read so that I can keep track of which messages have already been reviewed.
 
- - As an admin I want to  view comments on blog posts so that I can monitor and manage user discussions.
+- As an admin I want to  view comments on blog posts so that I can monitor and manage user discussions.
 
 - As an admin I want to create, read, update, and delete Replies so that I can manage replies in the Admin panel
 
 - As a admin I want to  approve or disapprove comments on blog posts so that I can filter out inappropriate comments.
+
+- As a Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post
+
+
 
 # Wireframes 
 [Wireframes here](docs/read_me/wireframes.pdfwireframes.pdf) 
@@ -64,6 +68,8 @@ the navigation bar allows users to navigate easily across all pages and the navi
 |Home                   |&#9989;        |&#9989;          |&#9989;
 |Contact                |&#9989;        |&#9989;          |&#9989;
 |My Profile             |&#10060;       |&#9989;          |&#9989;
+|Create a Blog post     |&#10060;       |&#9989;          |&#9989;
+|Your Blog posts        |&#10060;       |&#9989;          |&#9989;
 |Sign Out               |&#10060;       |&#9989;          |&#9989;
 |Sign up                |&#9989;        |&#10060;         |&#10060;
 |Log In                |&#9989;        |&#10060;         |&#10060;
@@ -132,10 +138,95 @@ Once the user has created an account they can then create/update their own Profi
 + Once the user has submitted their blog post it will be pending review by the admin before it can be published.
 + Once it has been published it can be edited and deleted by the user. 
 
+### <ims>Create blog post page</ims>
+
++ The registered User has a page that views their own blog posts
++ The posts are organised in a column and are paginated by a factor of 6 blog posts
++ The user has the option to view the blog post as well as to edit or delete their 
+own blog posts from this page.
+
+
 
 # <ins>Database</ins>
 A postgres database was used in the creation of this website. Below shows an image of how the database tables relate to one another. 
 [Entity relationship diagrams](docs/read_me/erd.jpg)
 
 
+# <ins>Defensive Design Features</ins>
 
+These are the steps I have taken with regards to defensive design:
+
++ When the User chooses to delete either of the following:
+    - A profile page
+    - A blog post
+    - A comment
+    - A reply
+
+    They are taken to a delete form on a separate page where they can either commit to deleting or to going back to the previous page.
+
++ When the user wants to sign out there is an opton to cancel and go back to the previous page.
+
++ After a user has created a blog post or made a profile page the profile is submitted but needs to be authenticated by an admin first before it can be published, an alert message appears to tell this to the user.
+
++ Default images:
+
+- For both blog posts and profiles, the user has an option to upload an image.
+
+- However if the user does not upload an image a default image will be uploaded in its place. 
+
+
++ error pages:
+
+- if the user alters the url to direct them to a page that doesn't exist then they will be displayed with a page that will display
+ "<strong>Not Found</strong> The requested resource was not found on this server."
+
+# Deployment
+
+## Heroku Deployment
+
+This project was deplpyed using Heroku.
+
+
+### On Heroku
+
++ Log into Heroku
++ Select 'Create New App' from your dashboard, choose an app name and select the appropriate region.
++ Click 'Create App'
++ Select 'Settings' on the navigation mendu and In Config vars, add key/values conferring to configuration settings, environment variables, and other key-value pairs related to the Python project. 
++ Also in Config vars add the key value pair <strong>DISABLE_COLLECTSTATIC: 1</strong> for deployment wihout static files.
+
+
+### Within the codespace
+
+#### Procfile
+
++ Install the gunicorn python package and freeze to requirements.txt.
+
++ Create a file called 'Procfile' and add the following command ``` web gunicorn techtalk.wsgi ``` .
+
+#### Deployment with static file
+
++ The whitenoise python package was installed and added to requirements.txt
+
++ In settings.py add whitenoise middleware to middleware and add a static root path to 'staticfiles'.
+
++ Enter the command ``` python3 manage.py collectstatic ``` into the terminal.
+
++ Create the file 'runtime.txt' and add a supported runtime from [supported runtimes](https://devcenter.heroku.com/articles/python-support#specifying-a-python-version).
+
+
+#### Debug
+
++ set debug to False on settings.py
+
+#### Committing changes
+
++ git add. , commit and push the changes with and appropriate commit message such as "prepare oriject for deployment"
+
+### Back on Heroku
+
+(optional) select 'Resources' on the navigation menu and enable Eco Dynos
+
++ Back on Heroku in 'Config Vars' remove the <strong>DISABLE_COLLECTSTATIC : 1</strong> key/value pair. 
++ Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
++ At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finshied loading select 'open app'.

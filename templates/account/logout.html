@@ -21,8 +21,9 @@
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
               <button class="btn btn-signup btn-secondary right" type="submit">{% trans 'Sign Out' %}</button>
+              <button class="btn btn-secondary"><a class="text-decoration-none text-light" href="{{ request.META.HTTP_REFERER }}">No, cancel</a></button>
           </form>
-      </div>
+      </div> 
   </div>
 </div>
 
