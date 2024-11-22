@@ -60,14 +60,15 @@
                     <em>{{ post.created_on }}</em>
                 </div>
                 <div>
-                <p><strong><em>Last Updated at</em></strong></p>
-                <em>{{ post.updated_on }}</em>
+                    <p><strong><em>Last Updated at</em></strong></p>
+                    <em>{{ post.updated_on }}</em>
                 </div>
             </div>
         </div>
     </div>
     <hr>
 </div>
+
 
 <!--Comment Section-->
 <div class="comment-thread mt-5 mb-5">
@@ -85,13 +86,13 @@
             </div>
         </form>
     </div>
+    {% else %}
+    <div class="card blog-card shadow p-3 mt-3">
+        <p>Log in to leave a comment</p>
+    </div>
+    {% endif %}
+    {% for comment in post.comments.all %}
+    {% include 'blog/comment.html' %}
+    {% endfor %}
 </div>
-{% else %}
-<div class="card blog-card shadow p-3 mt-3">
-    <p>Log in to leave a comment</p>
-</div>
-{% endif %}
-{% for comment in post.comments.all %}
-{% include 'blog/comment.html' %}
-{% endfor %}
 {% endblock %}
