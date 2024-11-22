@@ -50,7 +50,7 @@ Placeholder for am I responsive image
 
 
 # Wireframes 
-[Wireframes here](docs/read_me/wireframes.pdfwireframes.pdf) 
+[Wireframes here](/docs/read_me/wireframes.png) 
 
 These wireframes were created with balsamiq.
 
