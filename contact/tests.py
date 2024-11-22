@@ -6,31 +6,25 @@ from .forms import ContactForm
 class TestContactForm(TestCase):
 
     def test_form_is_valid(self):
-        
-        """ Test for all fields in contact form"""
-        
+        """ Test for all fields in contact form """
         form = ContactForm({
             'name': 'testuser',
             'email': 'testuser@test.com',
             'message': 'Hello! This is a test message.'
         })
         self.assertTrue(form.is_valid(), msg="Form is not valid")
-        
-    def test_form_is_valid_without_name(self):
-        
-        """ test for contact form without name"""
-        
+
+    def test_form_is_invalid_without_name(self):
+        """ Test for contact form without name """
         form = ContactForm({
             'name': '',
             'email': 'testuser@test.com',
             'message': 'Hello! This is a test message.'
         })
         self.assertFalse(form.is_valid(), msg="Form is valid")
-    
-    def test_form_is_valid_without_email(self):
-        
-        """ test for contact form without email"""
-        
+
+    def test_form_is_invalid_without_email(self):
+        """ Test for contact form without email """
         form = ContactForm({
             'name': 'testuser',
             'email': '',
@@ -38,16 +32,11 @@ class TestContactForm(TestCase):
         })
         self.assertFalse(form.is_valid(), msg="Form is valid")
 
-    def test_form_is_valid_without_message(self):
-        
-        """ test for contact form without message"""
-        
+    def test_form_is_invalid_without_message(self):
+        """ Test for contact form without message """
         form = ContactForm({
             'name': 'testuser',
             'email': 'testuser@test.com',
             'message': ''
         })
         self.assertFalse(form.is_valid(), msg="Form is valid")
-        
-
-    

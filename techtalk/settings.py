@@ -97,8 +97,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'techtalk.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-"https://*.gitpod.io",  
-"https://*.herokuapp.com"  
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com"
 ]
 
 # Database
@@ -113,7 +113,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-} 
+}
 
 # Switch to SQLite for testing
 if 'test' in sys.argv:
@@ -171,7 +171,7 @@ CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
 CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME' : CLOUDINARY_CLOUD_NAME,
+    'CLOUD_NAME': CLOUDINARY_CLOUD_NAME,
     'API_KEY': CLOUDINARY_API_KEY,
     'API_SECRET': CLOUDINARY_API_SECRET,
 }
@@ -181,7 +181,7 @@ SUMMERNOTE_CONFIG = {
     'summernote': {
         # Change editor size
         'width': '100%',
-    'toolbar': [
+        'toolbar': [
             ['style', ['style']],
             ['font', ['bold', 'italic', 'underline', 'clear']],
             ['fontname', ['fontname']],
@@ -192,7 +192,5 @@ SUMMERNOTE_CONFIG = {
     },
 }
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

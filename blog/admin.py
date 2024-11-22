@@ -3,25 +3,28 @@ from .models import Post, Comment, Tag, Reply
 
 # Register your models here.
 
+
 class CommentItemInline(admin.TabularInline):
     model = Comment
     extra = 1
+
+
 class ReplyItemInline(admin.TabularInline):
     model = Reply
     extra = 1
+
+
 class TagAdmin(admin.ModelAdmin):
     model = Tag
     prepopulated_fields = {'slug': ('tag',)}
-    
+
+
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
     list_display = ('author', 'post',)
     inlines = [ReplyItemInline]
-    
-class CommentItemInline(admin.TabularInline):
-    model = Comment
-    extra = 1
-    
+
+
 class PostAdmin(admin.ModelAdmin):
     model = Post
     inlines = [CommentItemInline]
@@ -33,4 +36,4 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(Tag,TagAdmin)
+admin.site.register(Tag, TagAdmin)

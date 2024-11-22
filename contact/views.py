@@ -3,15 +3,15 @@ from django.contrib import messages
 from .forms import ContactForm
 
 
-
 # Create your views here.
 
+
 def ContactFormView(request):
-    
+
     """
     Sends contact form and redirects user back to contact page
     """
-    
+
     contactform = ContactForm()
     if request.method == "POST":
         contactform = ContactForm(request.POST)
@@ -24,9 +24,9 @@ def ContactFormView(request):
             contactform.save()
             messages.success(request, 'Message sent successfully')
             return redirect('contact-form')
-    
+
     context = {
         "contactform": contactform
     }
-    
+
     return render(request, 'contact/contact_form.html', context)

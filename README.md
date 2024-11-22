@@ -1,11 +1,11 @@
 # **TechTalk**
 
-- TechTalk is an online blog that allows registered users to create a Profile so that they can make their own blog posts as well as a comment secton for both comments and replies.
+- Techtalk is on online blog where people can make posts about various technology subjects. Techtalk is a place where people can leave comments on those posts to start a conversation about those topics, also having the option to edit and delete posts and contact admin.
 
 - Here is the live version of the website:
 [Techtalk](https://techtalk-3a394e241470.herokuapp.com)
 
-Placeholder for am I responsive image
+!['am I responsive' image](docs/read_me/am_i_responsive.png)
 
 
 # **User Stories**
@@ -217,7 +217,7 @@ This project was deplpyed using Heroku.
 
 #### Debug
 
-+ set debug to False on settings.py
++ Set debug to False on settings.py
 
 #### Committing changes
 
@@ -230,3 +230,65 @@ This project was deplpyed using Heroku.
 + Back on Heroku in 'Config Vars' remove the <strong>DISABLE_COLLECTSTATIC : 1</strong> key/value pair. 
 + Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
 + At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finshied loading select 'open app'.
+
+
+# Automated Testing
+
+Automated Unit Testing was carried out with Djangos testing tools and written to cover as much of the site as possible. Below is an overview of each app and what was tested:
+
+### Blog app
+
++ Forms
+    - ```test_form_is_valid``` was used to test the ```commentForm```with the content "This is a comment to the post" and ```self.assertTrue``` asserts whether the form is valid.
+    - ```test_form_is_invalid``` was used to test if the ```commentForm``` with an empty string is invalid.It uses ```self.assertFalse``` to assert that the form is invalid.
+    - ```test_form_is_valid``` was used to test the ```replyForm``` with the content "This is a reply to the comment." and ```self.assertTrue``` asserts whether the form is valid.
+    - ```test_form_is_invalid``` was used to test if the ```replyForm``` with an empty string is invalid.It uses ```self.assertFalse``` to assert that the form is invalid.
+
++ Views
+
+    - setUp: This method sets up the test environment by creating a superuser, logging in, and creating a blog post with the title "Blog title".
+
+    - test_render_post_blog_page: This test checks if the blog post page is rendered correctly. It verifies the following:
+        - The HTTP status code of the response is 200.
+        - The response content includes "Blog title", "blog-title", and "Blog content".
+        - The correct template "blog/post_blog.html" is used.
+        - The context contains instances of CommentForm and ReplyForm.
+        - Test for Successful Comment Submission
+
+    - Test for Successful Comment Submission
+        - test_successful_comment_submission: This test checks if a comment can be successfully submitted. It performs the following steps:
+        - Creates a blog post.
+        - Logs in with a user.
+        - Posts a comment.
+        - Checks if the response redirects to the blog post page with status code 302.
+    - Test for Successful Reply Submission
+        - test_successful_reply_submission: This test checks if a reply to a comment can be successfully submitted. It performs the following steps:
+        - Creates a comment on a blog post.
+        - Logs in with a user.
+        - Posts a reply.
+        - Checks if the response redirects to the blog post page with status code 302.
+        - These tests ensure that the blog post page renders correctly and that comments and replies can be submitted successfully.
+
+# About app
++ Forms
+
+    - UpdateProfileFormTest: 
+        - This test case verifies the functionality of the UpdateProfileForm.
+        - Test for successful Profile form submission: ```test_form_is_invalid```: This test checks if the form is valid when provided with valid data and a file upload. It ensures that the form can handle the input properly and is considered valid.
+
++ Views
+    - setUp: This method prepares the test environment by creating a superuser.
+    - UpdateFormViewTest:
+        -  This test case verifies the views related to updating and deleting user profiles.
+
+    - Test for updating profile and redirecting back to profile page:
+        - test_successful_profile_update: This test logs in a user, submits valid profile data via a POST request, and checks if the response redirects to the correct profile page URL.
+
+    - Test for deleting profile and redirecting back to user's profile page:
+        - test_successful_profile_delete: This test logs in a user, performs a POST request to delete the profile, and verifies that the response redirects to the correct profile page URL. It also checks that the profile's bio is empty and the image is set to "nobody" after deletion.
+# Contact app
++ Form
+    -  test_form_is_valid: Verifies that the form is valid when all fields (name, email, message) are provided.
+    - test_form_is_invalid_without_name: Ensures the form is invalid when the name field is empty.
+    - test_form_is_invalid_without_email: Ensures the form is invalid when the email field is empty.
+    - test_form_is_invalid_without_message: Ensures the form is invalid when the message field is empty.
