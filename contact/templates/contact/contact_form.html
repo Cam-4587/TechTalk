@@ -13,7 +13,7 @@
                 <form class="form-control" method="POST">
                     <div class="d-flex flex-column">
                         {% csrf_token %}
-                        {{ contactform }}
+                        {{ contactform.as_p }}
                     </div>
                     <button class="btn btn-secondary mt-3" type="submit">Submit</button>
                 </form>
