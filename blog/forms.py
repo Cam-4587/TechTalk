@@ -55,7 +55,6 @@ class CreateBlogPost(forms.ModelForm):
             'image': forms.ClearableFileInput(attrs={
                 "class": "form-control",
                 "id": "formFile",
-                "label": "Default file input example"
             }),
             'tags': forms.SelectMultiple(
                 attrs={"class": "form-select multi-select"}
