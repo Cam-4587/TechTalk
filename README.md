@@ -7,6 +7,64 @@
 
 !['am I responsive' image](docs/read_me/am_i_responsive.png)
 
+## **Contents**
+
+* [Design](#design)
+    * [Colours](#colours)
+    * [Typography](#typography)
+    * [Imagery](#imagery)
+* [User Stories](#user-stories)
+    * [Users](#users)
+    * [Admin](#admin)
+* [Agile methodology](#agile-methodology)
+* [Wireframes](#wireframes)
+* [Features](#features)
+    * [Navigation bar](#navigation-bar)
+    * [User registration not required](#user-registration-not-required)
+    * [User profile creation](#user-profile-creation)
+    * [Home page](#home-page)
+    * [About us page](#about-us-page)
+    * [Contact page](#contact-page)
+    * [Profile page](#profile-page)
+    * [Create blog post page](#create-blog-post-page)
+    * [Users blog post page](#users-blog-post-page)
+* [Databse](#database)
+* [Defensive Design features](#defensive-design-features)
+* [Deployment](#deployment)
+    * [Heroku Deployment](#heroku-deployment)
+    * [On Heroku](#on-heroku)
+    * [Within the codespace](#within-the-codespace)
+        * [Procfile](#procfile)
+        * [Deployment with a static file](#deployment-with-static-file)
+        * [Debug](#debug)
+        * [Committing changes](#committing-changes)
+    * [Back on Heroku](#back-on-heroku)
+* [Automated Testing](#automated-testing)
+    * [Blog app](#blog-app)
+    * [About app](#about-app)
+    * [Contact app](#contact-app)
+
+
+
+# Design
+## Colours
+This colour scheme was considered becuase the contrast between the lighter coloured background and the black text helps the text stand out.
+
+It also is a very minimalistic colour scheme meaning that the content of the blogs stand out a lot more.
+!['techtalk colour scheme](docs/read_me/techtalk_colour_scheme.png)
+
+## Typography
+
+Trhoughout the project Arial was used but Poppins was imported from google fonts to be used for the contact form.
+
+## Imagery
+
+Static images are used as placeholder images for users profiles and their blog posts if an image hasn't been chosen. The about us page has a static image that is the same image as the the placeholder image for users blog posts.
+
+A map is presented on the contact page to identify Techtalks location.
+
+The remaining imagery is uploaded by users to the database.
+
 
 # **User Stories**
 
@@ -47,7 +105,19 @@
 
 - As a Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post
 
+# Agile methodology
+This project was planned using Agile Methodology, specifically utilizing GitHub and its Project Board feature. The Kanban board within GitHub's project view helped to categorize the project tasks into the following sections:
 
+
+* To Do: Initially, all user stories were placed in this column.
+
+* In Progress: During development, user stories were moved to this column.
+
+* Done: Once development was completed, user stories were transitioned to this column.
+
+* Discarded User Stories to dicard a user story that was no longer being used.
+
+Please find my Kanban Board with my user stories [here](https://github.com/users/Cam-4587/projects/10/views/1).
 
 # Wireframes 
 [Wireframes here](/docs/read_me/wireframes.png) 
@@ -56,9 +126,7 @@ These wireframes were created with balsamiq.
 
 # Features
 
-## Current features
-
-### <ins>Navigation bar</ins>
+## <ins>Navigation bar</ins>
 
 the navigation bar allows users to navigate easily across all pages and the navigation buttons update depending on whether or not the user is logged in or not.
 
@@ -74,11 +142,11 @@ the navigation bar allows users to navigate easily across all pages and the navi
 |Sign up                |&#9989;        |&#10060;         |&#10060;
 |Log In                |&#9989;        |&#10060;         |&#10060;
 
-### <ins>**User registration not required**</ins>
+## <ins>**User registration not required**</ins>
 
 I wanted to give non registered users the ability to search through and read other users blogs and have the ability to contact the admin so that the blog is made more accessible. 
 
-### <ins>**User Profile creation**</ins>
+## <ins>**User Profile creation**</ins>
 
 - At the end of the navigation bar and in the about use page there are buttons that can navigate you to the signup page where you enter the following things to create an account:
     + a Username
@@ -89,7 +157,7 @@ I wanted to give non registered users the ability to search through and read oth
 
 Once the user has created an account they can then create/update their own Profile, Create/update their own Posts and add comments and replies to other users posts and comments.
 
-### <ins>Home page</ins>
+## <ins>Home page</ins>
 
 + The Home page shows a generic list view of all of the published blogs with a button to take the user to that blog post.
 
@@ -100,13 +168,21 @@ Once the user has created an account they can then create/update their own Profi
     - Usernames displayed next to comments and replies also act as links to a public Profile page that can be viewed by other users.
     - If the user has no profile or it is pending review then it will display "Profile not found".
 
-### <ims>About us page</ims>
+    <br>
+
+    ![home page](/docs/read_me/home_page.png)
+
+## <ims>About us page</ims>
 
 + The about us page gives a small paragraph of text that acts that introduces the user to the website and what the website is about located next to an image.
 
 + if the user is not signed up up then a sign up button will appear redirecting the user to the sign up page.
 
-### <ins>Contact page</ins>
+    <br>
+
+    ![about us page](/docs/read_me/about_us_page.png)
+
+## <ins>Contact page</ins>
 
 + The contact page contains a contact form along with a map and contact information.
 
@@ -114,7 +190,10 @@ Once the user has created an account they can then create/update their own Profi
 
     - The contact form can be used by both registered and unregistered users so it can be used as boh a way to contact admin for collaboration purposes and to highlight and issues with the content.
 
-### <ins>Profile page</ins>
+    <br>
+![Contact page](/docs/read_me/contact_page.png)
+
+## <ins>Profile page</ins>
 
 - When a user instance is created the User's username is displayed in the navigation bar where they can go to create their profile.
 
@@ -124,7 +203,7 @@ Once the user has created an account they can then create/update their own Profi
 
 - Once the users profile has been reviewed and published it will be visible to the user where they can either delete it or edit their own profile.
 
-### <ims>Create blog post page</ims>
+## <ims>Create blog post page</ims>
 
 + Next to the user's profile is a path to create your own blog post.
 
@@ -138,7 +217,7 @@ Once the user has created an account they can then create/update their own Profi
 + Once the user has submitted their blog post it will be pending review by the admin before it can be published.
 + Once it has been published it can be edited and deleted by the user. 
 
-### <ims>Create blog post page</ims>
+## <ims>Users blog post page</ims>
 
 + The registered User has a page that views their own blog posts
 + The posts are organised in a column and are paginated by a factor of 6 blog posts
@@ -149,7 +228,9 @@ own blog posts from this page.
 
 # <ins>Database</ins>
 A postgres database was used in the creation of this website. Below shows an image of how the database tables relate to one another. 
-[Entity relationship diagrams](docs/read_me/erd.jpg)
+<br>
+
+![Entity relationship diagrams](docs/read_me/erd.jpg)
 
 
 # <ins>Defensive Design Features</ins>
