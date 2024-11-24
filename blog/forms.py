@@ -50,6 +50,15 @@ class CreateBlogPost(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'image', 'tags', 'intro', 'content']
+        
+        labels = {
+            'title': 'Title:',
+            'image': 'Image:',
+            'tags': 'Tags:',
+            'intro': 'Intro:',
+            'content': 'Content:'            
+        }
+        
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'image': forms.ClearableFileInput(attrs={
@@ -63,7 +72,7 @@ class CreateBlogPost(forms.ModelForm):
                 attrs={"class": "form-control", 'rows': 2, 'cols': 10}
             ),
             'content': SummernoteInplaceWidget(
-                attrs={"class": "form-control", "hidden": "False"}, 
+                attrs={"class": "form-control",}, 
             ),
         }
 

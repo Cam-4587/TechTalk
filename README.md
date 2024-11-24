@@ -203,6 +203,8 @@ Once the user has created an account they can then create/update their own Profi
 
 - Once the users profile has been reviewed and published it will be visible to the user where they can either delete it or edit their own profile.
 
+![Profile](/docs/read_me/profile.png)
+
 ## <ims>Create blog post page</ims>
 
 + Next to the user's profile is a path to create your own blog post.
@@ -217,6 +219,8 @@ Once the user has created an account they can then create/update their own Profi
 + Once the user has submitted their blog post it will be pending review by the admin before it can be published.
 + Once it has been published it can be edited and deleted by the user. 
 
+![Blog post creation form](/docs/read_me/blog_post_creation_form.png)
+
 ## <ims>Users blog post page</ims>
 
 + The registered User has a page that views their own blog posts
@@ -224,7 +228,12 @@ Once the user has created an account they can then create/update their own Profi
 + The user has the option to view the blog post as well as to edit or delete their 
 own blog posts from this page.
 
+![User's blog posts](/docs/read_me/blog_post_list.png)
 
+# CRUD Functionality
++ <strong>Registered superusers</strong> can access all Blog posts, comments, replies, profiles and tags in the admin panel where they can create, read, update and delete them.
+
++ <strong>Registered Users </strong> on the blog website have the ability the create, read, update and delete their own blog posts and profiles and both post and delete their own comments to blog posts and replies to other users comments.
 
 # <ins>Database</ins>
 A postgres database was used in the creation of this website. Below shows an image of how the database tables relate to one another. 
@@ -313,7 +322,8 @@ This project was deplpyed using Heroku.
 + At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finshied loading select 'open app'.
 
 
-# Automated Testing
+# Testing
+## Automated testing
 
 Automated Unit Testing was carried out with Djangos testing tools and written to cover as much of the site as possible. Below is an overview of each app and what was tested:
 
@@ -350,7 +360,7 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
         - Checks if the response redirects to the blog post page with status code 302.
         - These tests ensure that the blog post page renders correctly and that comments and replies can be submitted successfully.
 
-# About app
+### About app
 + Forms
 
     - UpdateProfileFormTest: 
@@ -367,9 +377,58 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
 
     - Test for deleting profile and redirecting back to user's profile page:
         - test_successful_profile_delete: This test logs in a user, performs a POST request to delete the profile, and verifies that the response redirects to the correct profile page URL. It also checks that the profile's bio is empty and the image is set to "nobody" after deletion.
-# Contact app
+### Contact app
 + Form
     -  test_form_is_valid: Verifies that the form is valid when all fields (name, email, message) are provided.
     - test_form_is_invalid_without_name: Ensures the form is invalid when the name field is empty.
     - test_form_is_invalid_without_email: Ensures the form is invalid when the email field is empty.
     - test_form_is_invalid_without_message: Ensures the form is invalid when the message field is empty.
+
+
+# Bugs
+
+* When incorporating django summernote into my Profile and Blog forms there were issues with html tags appearing on blog posts and profiles so summernote had to be configured to remove some of its elements.
+
+* In the admin panel when displaying the textarea for blog posts and profiles the summernote area doesn't take up the full width but asmin are still able to expand the text area to full size. 
+
+
+# Credits 
+
+[Cloudianry storage](https://www.youtube.com/watch?v=i0ar7W98Osc)- This Youtube tutorial helped me with uploading images using cloudinary.
+
+[Comments and Replies](https://www.youtube.com/watch?v=T5Jfb_LkoV0&t=1549s) - 
+* This tutorial helped me build a comments and replies section for the blog section.
+
+* Having links in the usernames in the comment section to direct the user to another users public profile. 
+
+* More broadly showing me views to requests instances of other models like the blog and Profile posts to them either edit or delete them.
+
+[Comments and replies section styling](https://css-tricks.com/styling-comment-threads/) - This artcile helped me in styling my comments and replies section.
+
+[Select2](https://select2.org/) - Select2 was used to help select and removed tags from the blog post form.
+
+[Alpine js](https://alpinejs.dev/) - Alpinejs was used to to toggle replies open and closed inthe comments section. 
+
+[Login form](https://mdbootstrap.com/docs/standard/extended/login/) - the Login form was used from MDboostrap.
+
+[Sign up form](https://mdbootstrap.com/docs/standard/extended/registration/) - The Registration form was used from MDboostrap.
+
+
+[Creating a user instance](https://www.youtube.com/watch?v=vMKg8W2JEUo&list=PL_KegS2ON4s580mS3nPt5x_eu6kO2cvOc&index=6) - This Youtube tutorial helped me with creating a profile when the user registers via signals.py.
+
+
+[Summernote Customisation](https://stackoverflow.com/questions/28812825/custom-toolbar-with-summernote) and [Summernote Width](https://stackoverflow.com/questions/61657061/how-do-i-resize-the-width-of-summernote)  - These posts in stack overflow helped me in terms of configuring django summernote in settings.py to alter the tollbar of django summernote and adjusting the width of the summernote text area.
+
+
+[limiting the number of tags](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit) - This overflow post helped me limit the number of tags a user can add to a blog post.
+
+[About us page image and blog placeholder image.](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit)
+
+[Website technology icon](https://www.flaticon.com/free-icon/technology_10444049?term=technology&page=1&position=25&origin=search&related_id=10444049) and [Favicon converter](https://image.online-convert.com/convert-to-ico) to turn image into favicon.
+
+[Styling Django forms](https://www.youtube.com/watch?v=6-XXvUENY_8) This youtube tutorial helped me to style my blog post form forms using widgets to give the form form control.
+
+[Summernote widget](https://stackoverflow.com/questions/52168446/how-to-use-django-summernote-in-templates) - This stack overflow post helped incorporate summernote as an inline widget so that summernote could be incorporated into my forms.
+
+[Inline items](https://stackoverflow.com/questions/33748059/add-inline-model-to-django-admin-site) - This stack overflow post helped in adding inline elements to my modesl in the admin panel.
+

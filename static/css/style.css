@@ -33,6 +33,7 @@ footer {
 /*Home Page styling and Positioning*/
 
 .card-home-page {
+  width:25rem;
   padding: 25px;
   margin: 40px;
   box-shadow: 5px 10px 10px 5px #888888;
@@ -274,7 +275,7 @@ footer {
 
   /*Home Page*/
   .card-home-page {
-    width: 80%;
+    width:80%;
   }
 
   /*Blog Display Page*/
