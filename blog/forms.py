@@ -54,7 +54,7 @@ class CreateBlogPost(forms.ModelForm):
         labels = {
             'title': 'Title:',
             'image': 'Image:',
-            'tags': 'Tags:',
+            'tags': 'Tags: (maximum of 5):',
             'intro': 'Intro:',
             'content': 'Content:'            
         }
