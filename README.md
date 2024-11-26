@@ -39,6 +39,9 @@
         * [Debug](#debug)
         * [Committing changes](#committing-changes)
     * [Back on Heroku](#back-on-heroku)
+* [Testing](#testing)
+* [Bugs](#bugs)
+* [Credits](#credits)
 
 
 
