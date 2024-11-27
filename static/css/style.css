@@ -228,9 +228,10 @@ footer {
 
 }
 
-.offwhite{
-  background-color: #FAF9F6;
+#profile-edit-form a{
+  color:black;
 }
+
 
 /* Contact section styling and positioning*/
 
