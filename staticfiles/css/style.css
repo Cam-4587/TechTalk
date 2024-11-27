@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 /*Generic sizing and positioning for all pages*/
 
 * {
@@ -30,19 +28,15 @@ footer {
   margin-top: auto;
 }
 
-/*Generic sizing and positioning for all pages*/
+/*Home Page styling and Positioning*/
 
 .card-home-page {
-  width: 25rem;
+  width:25rem;
   padding: 25px;
   margin: 40px;
   box-shadow: 5px 10px 10px 5px #888888;
 }
 
-.row {
-  display: flex;
-  justify-content: space-evenly;
-}
 
 .tag {
   background: #cccccc;
@@ -52,10 +46,12 @@ footer {
   color: #fff;
   padding: 2px 10px;
   text-transform: uppercase;
-  cursor: pointer;
 }
 
-/*Blog display styling and positioning*/
+
+
+
+/*Blog Post display styling and positioning*/
 
 .blog-display-container {
   width: 70%;
@@ -110,8 +106,6 @@ footer {
   padding: 0 30px;
   background-color: #fff;
   border: 1px solid transparent;
-  /* Removes margin collapse */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.4;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -128,8 +122,6 @@ footer {
   height: 1px;
   overflow: hidden;
 }
-
-/* Comment */
 
 .comment {
   position: relative;
@@ -197,6 +189,11 @@ footer {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+
+
+
+
+
 /* Comment and Reply delete form */
 
 .delete-form {
@@ -209,7 +206,13 @@ footer {
   border-radius: 20px;
 }
 
-/*Profile page styling*/
+
+
+
+
+/*Profile page styling and positioning*/
+
+
 .profile-container{
   margin-top: -20px;
   padding-top:20px;
@@ -224,69 +227,12 @@ footer {
   padding-bottom:20px;
 
 }
-/*About us Page*/
 
-.about-us-section {
-  width: 100%;
-  min-height: 100vh;
+.offwhite{
+  background-color: #FAF9F6;
 }
 
-.about-us-container {
-  width: 80%;
-  display: block;
-  margin: auto;
-  padding: 40px;
-}
-
-.about-us-content-section {
-  float: left;
-  width: 55%;
-}
-
-.about-us-image-section {
-  float: right;
-  width: 40%;
-}
-
-.about-us-image-section img {
-  width: 90%;
-  height: auto;
-}
-
-.about-us-title {
-  text-align:center;
-  text-transform: uppercase;
-  font-size: 28px;
-}
-
-
-.about-us-content p {
-  margin-top: 10px;
-  font-family: sans-serif;
-  font-size: 17px;
-}
-
-.about-us-button {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-us-button a {
-  background-color: #3d3d3d;
-  padding: 12px 40px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 25px;
-  letter-spacing: 1.5px;
-}
-
-.about-us-button a:hover {
-  background-color: #a52a2a;
-  color: #fff;
-}
-
-/* Contact section styling*/
+/* Contact section styling and positioning*/
 
 .contact-form,
 .contact-info-text {
@@ -299,13 +245,10 @@ footer {
   margin-top:50px;
 }
 
-/* Profile page offwhite colour */
 
-.offwhite{
-  background-color: #FAF9F6;
-}
 
 /* Alert message styling */
+
 .alert-container{
   width:100%;
   justify-content: center;
@@ -321,13 +264,16 @@ footer {
   padding-left:20px;
   font-weight:300;
 }
+
+
+
 /*Media queries for mobile styling*/
 
 @media only screen and (max-width: 768px) {
 
   /*Home Page*/
   .card-home-page {
-    width: 80%;
+    width:80%;
   }
 
   /*Blog Display Page*/
@@ -340,92 +286,8 @@ footer {
     min-width: 100%;
   }
 
-  .container {
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding-top: 50px;
-  }
 
-  .content-section {
-    float: none;
-    width: 100%;
-    display: block;
-    margin: auto;
-  }
-
-  .image-section {
-    float: none;
-    width: 100%;
-  }
-
-  .image-section img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: auto;
-  }
-
-  .content-section .title {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 19px;
-  }
-
-  .content-section .content .button {
-    text-align: center;
-  }
-
-  .content-section .content .button a {
-    padding: 9px 30px;
-
-  }
-
-  .content-section .social {
-    text-align: center;
-  }
-
-  /*About us Page*/
-  .about-us-container {
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding-top: 50px;
-  }
-
-  .about-us-content-section {
-    float: none;
-    width: 100%;
-    display: block;
-    margin: auto;
-  }
-
-  .about-us-image-section {
-    float: none;
-    width: 100%;
-  }
-
-  .about-us-image-section img {
-    width: 70%;
-    height: auto;
-    display: block;
-    margin: auto;
-  }
-
-  .about-us-title {
-    text-align: center;
-    font-size: 19px;
-  }
-
-  .about-us-content .button {
-    text-align: center;
-  }
-
-  .about-us-button a {
-    padding: 9px 30px;
-
-  }
-  /*Profile page styling*/
+  /*Profile page Styling*/
 .profile-img{
   width:90%;
 }
