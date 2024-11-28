@@ -10,25 +10,43 @@
 * As a Site User I want to  register an account so that I can access the websites features concerning blog posts, comments and reply.
 ![User Story 1](/docs/read_me/user_story_1.png)
 
+<br>
+
 * As a registered user I want  to edit tags on a blog post after publishing it so that I can update or improve the categorization of my content.
 ![User Story 1](/docs/read_me/user_story_2.png)
+
+<br>
 
 * As a registered user I want to add up to 5 tags to my blog posts so that readers can understand the content of the post before reading.
 ![User Story 3](/docs/read_me/user_story_3.png)
 
+<br>
+
 * As a registered user I want  to send a message to the site admin via email so that I can contact them with questions or concerns.
 ![User Story 4](/docs/read_me/user_story_4.png)
+
+<br>
 
 +  As a site user I want to add comments underneath blog posts so that I can share relevant information or my opinions about the blog post.
 ![User Story 5](docs/read_me/user_story_5.png)
 
+<br>
+
 +  As a registered user I want to create blog posts with content and an optional image so that I can share my thoughts and interests with other users.
 ![User Story 6](docs/read_me/user_story_6.png)
+
+<br>
+
 +  As a registered user I want to update my profile image and profile content so that I can keep my information up-to-date.
 ![User Story 7](docs/read_me/user_story_7.png)
 
+<br>
+
 + As a registered user I want to reply to comments on blog posts so that I can engage in conversation with other users.
 ![User Story 8](docs/read_me/user_story_8.png)
+
+<br>
+
 + As a site user I want to view comments and toggle replies under a blog post so that I can follow the conversation and participate if needed.
 ![User Story 9](docs/read_me/user_story_9.png)
 
@@ -36,16 +54,31 @@
 
 - As an admin I want to create, read, update, and delete posts so that I can manage posts in the Admin panel
 ![User Story 10](docs/read_me/user_story_10.png)
+
+<br>
+
 - As an admin I want to  manage comments in the Admin panel so that I can manage comments on all blog posts
 ![User Story 11](docs/read_me/user_story_11.png)
+
+<br>
+
 - As an admin I want to  mark emails sent by users as read so that I can keep track of which messages have already been reviewed.
 ![User Story 12](docs/read_me/user_story_12.png)
+
+<br>
 - As an admin I want to  view comments on blog posts so that I can monitor and manage user discussions.
 ![User Story 13](docs/read_me/user_story_13.png)
+
+<br>
+
 - As an admin I want to create, read, update, and delete Replies so that I can manage replies in the Admin panel
 ![User Story 14](docs/read_me/user_story_14.png)
 
+<br>
+
 - As a Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post [<code style="color : red">Redacted</code>]
+
+<br>
 
 - As a Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post.
 
@@ -207,3 +240,32 @@ TechTalk has been tested for responsiveness on the following devices:
 * Samsung Galaxy A51/71
 * Nest Hub
 * Nest Hub Max
+
+## Lighthouse testing
+
+To help with performance and accessiblity:
+* ```lang = "en-US``` was added to the top HTML tag
+* Google fonts imports has moved from style.css to the head section of base.html.
+* ```async``` and ```defer``` have been added to scripts
+* ``` preconnect``` has been added to links in the header.
+
+Below are Lighthouse tests conducted on the home page, a blog post and the profile page.
+
+![lighthouse_test_for_home_page](/docs/read_me/lighthouse_test_home_page.png)
+
+![lighthouse_test_for_a_blog_post](/docs/read_me/lighthouse_test_blog_post.png)
+
+![lighthouse_test_for_profile_page](/docs/read_me/lighthouse_test_profile_page.png)
+
+
+
+
+## Code validaiton
+
+All my Python code has been validated with no issues on [CI Python Linter](https://pep8ci.herokuapp.com/#)
+
+My CSS code has been validated on [CSS jigsaw](https://jigsaw.w3.org/css-validator/)
+
+All HTML code that I have created has been validated on [WSC HTML validator](https://validator.w3.org/)
+
+

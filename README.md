@@ -332,6 +332,10 @@ Testing can be found separately [here](/Testing.md)
 
 * In the admin panel when displaying the textarea for blog posts and profiles the summernote area doesn't take up the full width but asmin are still able to expand the text area to full size. 
 
+* When Django Summernote underwent HTML validation it reported errors despite adding ```.as_p``` to the end of either the profile or blog post form but these errors couldn't be reconciled.
+
+* Lighthouse testing conducted the Mobile views on pages where with forms containing django summernote showed that django Summernote was reducing the performance section due to the loading of ```jquery-3.3.1.min.js``` which is required for the use of Summernote in the profile and blog post forms.
+
 
 # Credits 
 
