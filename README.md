@@ -54,7 +54,7 @@ It also is a very minimalistic colour scheme meaning that the content of the blo
 
 ## Typography
 
-Trhoughout the project Arial was used but Poppins was imported from google fonts to be used for the contact form.
+Throughout the project Arial was used but Poppins was imported from google fonts to be used for the contact form.
 
 ## Imagery
 
@@ -68,7 +68,7 @@ The remaining imagery is uploaded by users to the database.
 # **User Stories**
 
 ### **Users**
-- As a Site User I want to  register an account so that I can access the websites features concerning blog posts, comments and reply.
+- As a Site User I want to  register an account so that I can access the websites features concerning blog posts, comments and replies.
 
 - As a registered user I want  to edit tags on a blog post after publishing it so that I can update or improve the categorization of my content.
 
@@ -82,7 +82,7 @@ The remaining imagery is uploaded by users to the database.
 
 - As a registered user I want to update my profile image and profile content so that I can keep my information up-to-date.
 
-- As a registered user I want to reply to comments on blog posts so that I can engage in conversation with other users.
+- As a registered user I want to reply to comments on blog posts so that I can engage in conversations with other users.
 
 - As a site user I want to view comments and toggle replies under a blog post so that I can follow the conversation and participate if needed.
 
@@ -174,7 +174,7 @@ Once the user has created an account they can then create/update their own Profi
 
 + The about us page gives a small paragraph of text that acts that introduces the user to the website and what the website is about located next to an image.
 
-+ if the user is not signed up up then a sign up button will appear redirecting the user to the sign up page.
++ if the user is not signed up then a sign up button will appear redirecting the user to the sign up page.
 
     <br>
 
@@ -246,16 +246,16 @@ These are the steps I have taken with regards to defensive design:
 
 + Default images:
 
-- For both blog posts and profiles, the user has an option to upload an image.
+    - For both blog posts and profiles, the user has an option to upload an image.
 
-- However if the user does not upload an image a default image will be uploaded in its place. 
+    - However if the user does not upload an image a default image will be uploaded in its place. 
 
 
 + error pages:
 
-- if the user alters the url to direct them to a page that doesn't exist then they will be displayed with a page that will display
- "<strong>Not Found</strong> The requested resource was not found on this server."
-- If the user tries to access a another users Profile one isn't available then it will display a page saying <strong>Profile Not Found</strong> 
+    - if the user alters the url to direct them to a page that doesn't exist then they will be displayed with a page that will display
+    "<strong>Not Found</strong> The requested resource was not found on this server."
+    - If the user tries to access a another users Profile one isn't available then it will display a page saying <strong>Profile Not Found</strong> 
 
 # CRUD Functionality
 + <strong>Registered superusers</strong> can access all Blog posts, comments, replies, profiles and tags in the admin panel where they can create, read, update and delete them.
@@ -284,7 +284,7 @@ This project was deplpyed using Heroku.
 + Log into Heroku
 + Select 'Create New App' from your dashboard, choose an app name and select the appropriate region.
 + Click 'Create App'
-+ Select 'Settings' on the navigation mendu and In Config vars, add key/values conferring to configuration settings, environment variables, and other key-value pairs related to the Python project. 
++ Select 'Settings' on the navigation menu and In Config vars, add key/values conferring to configuration settings, environment variables, and other key-value pairs related to the Python project. 
 + Also in Config vars add the key value pair <strong>DISABLE_COLLECTSTATIC: 1</strong> for deployment wihout static files.
 
 
@@ -330,11 +330,11 @@ Testing can be found separately [here](/Testing.md)
 
 * When incorporating django summernote into my Profile and Blog forms there were issues with html tags appearing on blog posts and profiles so summernote had to be configured to remove some of its elements.
 
-* In the admin panel when displaying the textarea for blog posts and profiles the summernote area doesn't take up the full width but asmin are still able to expand the text area to full size. 
+* In the admin panel when displaying the textarea for blog posts and profiles the summernote area doesn't take up the full width but admin are still able to expand the text area to full size. 
 
 * When Django Summernote underwent HTML validation it reported errors despite adding ```.as_p``` to the end of either the profile or blog post form but these errors couldn't be reconciled.
 
-* Lighthouse testing conducted the Mobile views on pages where with forms containing django summernote showed that django Summernote was reducing the performance section due to the loading of ```jquery-3.3.1.min.js``` which is required for the use of Summernote in the profile and blog post forms.
+* Lighthouse testing conducted on Mobile views on pages where with forms containing django summernote showed that django Summernote was reducing the performance section due to the loading of ```jquery-3.3.1.min.js``` which is required for the use of Summernote in the profile and blog post forms.
 
 
 # Credits 
@@ -346,13 +346,15 @@ Testing can be found separately [here](/Testing.md)
 
 * Having links in the usernames in the comment section to direct the user to another users public profile. 
 
-* More broadly showing me views to requests instances of other models like the blog and Profile posts to them either edit or delete them.
+* importing ```uuid``` to use as an alternative to slugs tha were used to mark comments and replies with ids.
 
-[Comments and replies section styling](https://css-tricks.com/styling-comment-threads/) - This artcile helped me in styling my comments and replies section.
+* More broadly showing me views to requests instances of other models like the blog and Profile posts to then either edit or delete them.
 
-[Select2](https://select2.org/) - Select2 was used to help select and removed tags from the blog post form.
+[Comments and replies section styling](https://css-tricks.com/styling-comment-threads/) - This article helped me in styling my comments and replies section.
 
-[Alpine js](https://alpinejs.dev/) - Alpinejs was used to to toggle replies open and closed inthe comments section. 
+[Select2](https://select2.org/) - Select2 was used to help select and remove tags from the blog post form.
+
+[Alpine js](https://alpinejs.dev/) - Alpinejs was used to to toggle replies open and closed in the comments section. 
 
 [Login form](https://mdbootstrap.com/docs/standard/extended/login/) - the Login form was used from MDboostrap.
 
@@ -362,7 +364,7 @@ Testing can be found separately [here](/Testing.md)
 [Creating a user instance](https://www.youtube.com/watch?v=vMKg8W2JEUo&list=PL_KegS2ON4s580mS3nPt5x_eu6kO2cvOc&index=6) - This Youtube tutorial helped me with creating a profile when the user registers via signals.py.
 
 
-[Summernote Customisation](https://stackoverflow.com/questions/28812825/custom-toolbar-with-summernote) and [Summernote Width](https://stackoverflow.com/questions/61657061/how-do-i-resize-the-width-of-summernote)  - These posts in stack overflow helped me in terms of configuring django summernote in settings.py to alter the tollbar of django summernote and adjusting the width of the summernote text area.
+[Summernote Customisation](https://stackoverflow.com/questions/28812825/custom-toolbar-with-summernote) and [Summernote Width](https://stackoverflow.com/questions/61657061/how-do-i-resize-the-width-of-summernote)  - These posts in stack overflow helped me in terms of configuring django summernote in settings.py to alter the toolbar of django summernote and adjusting the width of the summernote text area.
 
 
 [limiting the number of tags](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit) - This overflow post helped me limit the number of tags a user can add to a blog post.
@@ -375,5 +377,9 @@ Testing can be found separately [here](/Testing.md)
 
 [Summernote widget](https://stackoverflow.com/questions/52168446/how-to-use-django-summernote-in-templates) - This stack overflow post helped incorporate summernote as an inline widget so that summernote could be incorporated into my forms.
 
-[Inline items](https://stackoverflow.com/questions/33748059/add-inline-model-to-django-admin-site) - This stack overflow post helped in adding inline elements to my modesl in the admin panel.
+[Inline items](https://stackoverflow.com/questions/33748059/add-inline-model-to-django-admin-site) - This stack overflow post helped in adding inline elements to my models in the admin panel.
+
+[MS4-ARTstop](https://github.com/AmyOShea/MS4-ARTstop.git) - This project from Amy O Shea helped me Format my README section.
+
+[I think therefore I blog](https://github.com/Code-Institute-Solutions/blog/tree/main/01_getting_set_up) - This project from the code institute introduced me to django summernote and django all auth that was incorporated into my project and helped me when it came to creating unit tests for automatic testing. This project also helped me when creating my Post, Comment and Profile models.
 
