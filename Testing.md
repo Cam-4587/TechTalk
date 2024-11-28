@@ -1,10 +1,13 @@
+# Contents
+
 * [Testing from User Stories](#testing-from-user-stories)
 * [Automated Testing](#automated-testing)
     * [Blog app](#blog-app)
     * [About app](#about-app)
     * [Contact app](#contact-app)
 * [Responsive Design](#responisve-design)
-
+* [Lighthouse testing](#lighthouse-testing)
+* [Code Validation](#code-validaiton)
 ## Testing from User Stories
 ### Users 
 * As a Site User I want to  register an account so that I can access the websites features concerning blog posts, comments and reply.
@@ -66,6 +69,7 @@
 ![User Story 12](docs/read_me/user_story_12.png)
 
 <br>
+
 - As an admin I want to  view comments on blog posts so that I can monitor and manage user discussions.
 ![User Story 13](docs/read_me/user_story_13.png)
 
@@ -88,7 +92,7 @@
 
 ## Manuel Testing
 
-## Manually Testing Functionality
+### Manually Testing Functionality
 ### **Navigation**
 
 |Element               |Action|Expected Result               |Pass/Fail|
@@ -246,7 +250,7 @@ TechTalk has been tested for responsiveness on the following devices:
 To help with performance and accessiblity:
 * ```lang = "en-US``` was added to the top HTML tag
 * Google fonts imports has moved from style.css to the head section of base.html.
-* ```async``` and ```defer``` have been added to scripts
+* ```async``` and ```defer``` have been added to scripts.
 * ``` preconnect``` has been added to links in the header.
 
 Below are Lighthouse tests conducted on the home page, a blog post and the profile page.
