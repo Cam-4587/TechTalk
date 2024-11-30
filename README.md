@@ -381,5 +381,5 @@ Testing can be found separately [here](/Testing.md)
 
 [MS4-ARTstop](https://github.com/AmyOShea/MS4-ARTstop.git) - This project from Amy O Shea helped me Format my README section.
 
-[I think therefore I blog](https://github.com/Code-Institute-Solutions/blog/tree/main/01_getting_set_up) - This project from the code institute introduced me to django summernote and django all auth that was incorporated into my project and helped me when it came to creating unit tests for automatic testing. This project also helped me when creating my Post, Comment and Profile models.
+[I think therefore I blog](https://github.com/Code-Institute-Solutions/blog/tree/main/01_getting_set_up) - This project from the code institute introduced me to django summernote and django all auth that was incorporated into my project and helped me when it came to creating unit tests for automatic testing. This project also helped me when creating my Post, Comment and Profile models. This project alos helped me implement pagination into the home page and the user's blog post page.
 
