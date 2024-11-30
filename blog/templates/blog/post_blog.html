@@ -20,10 +20,10 @@
                 </header>
                 <!-- Post image-->
                 {% if "placeholder" in post.image.url %}
-                <figure class="mb-4"><img class="img-fluid rounded" src="{% static 'images/59869.jpg' %}"
-                        alt="placeholder image" loading="lazy"></figure>
+                <figure class="mb-4 d-flex justify-content-center"><img class="img-fluid rounded" src="{% static 'images/59869.jpg' %}"
+                        alt="placeholder image"></figure>
                 {% else %}
-                <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.image.url }}" alt="blog post image" loading="lazy">
+                <figure class="mb-4 d-flex justify-content-center"><img class="img-fluid rounded" src="{{ post.image.url }}" alt="blog post image" loading="lazy">
                 </figure>
                 {% endif %}
 

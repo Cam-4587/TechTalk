@@ -369,7 +369,7 @@ Testing can be found separately [here](/Testing.md)
 
 [limiting the number of tags](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit) - This overflow post helped me limit the number of tags a user can add to a blog post.
 
-[About us page image and blog placeholder image.](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit)
+[About us page image and blog placeholder image.](https://www.freepik.com/free-vector/character-illustration-people-holding-blogging-icons_3425167.htm#fromView=image_search&page=1&position=0&uuid=fdc26587-7189-40e7-b4ef-1937a36dab7d)
 
 [Website technology icon](https://www.flaticon.com/free-icon/technology_10444049?term=technology&page=1&position=25&origin=search&related_id=10444049) and [Favicon converter](https://image.online-convert.com/convert-to-ico) to turn image into favicon.
 

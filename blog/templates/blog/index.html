@@ -12,7 +12,7 @@
             <div class="card card-home-page">
                 <h5>Author: {{post.author}}</h5>
                 {% if "placeholder" in post.image.url %}
-                <img src="{% static 'images/59869.jpg' %}" alt="Card image cap" loading="lazy">
+                <img src="{% static 'images/59869.jpg' %}" alt="Card image cap">
                 {% else %}
                 <img src="{{ post.image.url }}"  alt="{{ post.title }}" loading="lazy">
 
