@@ -10,7 +10,7 @@
                 <!-- Post header-->
                 <header class="mb-4">
                     <!-- Post title-->
-                    <h1 class="fw-bolder mb-1 text-decoration-underline">{{post.title}}</h1>
+                    <h2 class="fw-bolder mb-1 text-decoration-underline">{{post.title}}</h2>
                     <!-- Post author-->
                     <div class="text-muted fst-italic mb-2">Posted by {{post.author}}</div>
                     <!-- Post tags-->
@@ -48,9 +48,9 @@
 
 
             <!-- Post content-->
-            <section class="mb-5 mt-3">
+            <div class="mb-5 mt-3">
                 {{post.content | safe}}
-            </section>
+            </div>
 
             <!--Indicaiton of when the blog post was created and last updated-->
 
