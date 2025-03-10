@@ -24,10 +24,10 @@
             <!--Profile image and Username-->
 
             {% if "nobody" in profile.image.url %}
-            <img src="{% static 'images/nobody.jpg' %}" width="100%" alt="defualt image"
+            <img src="{% static 'images/nobody.jpg' %}" alt="defualt image"
                 class="profile-img shadow-lg rounded-3 img-thumbnail">
             {% else %}
-            <img src="{{ profile.image.url}}" width="100%" alt="profile image"
+            <img src="{{ profile.image.url}}" alt="profile image"
                 class="profile-img shadow-lg rounded-3 img-thumbnail">
             {% endif %}
             <h1>{{ profile.user }}</h1>
@@ -36,14 +36,10 @@
 
             {% if user %}
             <div class="d-flex flex-row gap-3 justify-content-center">
-                <button class="btn btn-dark">
-                    <a class="text-light text-decoration-none" href="{% url 'update-profile' %}"> Edit Profile here
+                    <a class="text-light text-decoration-none btn btn-dark" href="{% url 'update-profile' %}"> Edit Profile here
                     </a>
-                </button>
-                <button class="btn btn-dark">
-                    <a class="text-light text-decoration-none" href="{% url 'delete-profile' %}"> Delete Profile
+                    <a class="text-light text-decoration-none btn btn-dark" href="{% url 'delete-profile' %}"> Delete Profile
                     </a>
-                </button>
             </div>
             {% endif %}
 
@@ -51,7 +47,7 @@
 
         </div>
         <div class="profile-txt mt-3">
-            <p>{{ profile.bio| safe }}</p>
+            {{ profile.bio| safe }}
         </div>
 
         <!--Indication of when the Profile was created and last updated-->
