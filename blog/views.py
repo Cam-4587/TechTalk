@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.utils.text import slugify
-from django.contrib import messages
+from django.contrib import messages 
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from .models import Post, Comment, Reply
 from .forms import CommentForm, ReplyForm, CreateBlogPost
 import about
@@ -120,10 +122,15 @@ def CreatePost(request):
     }
     return render(request, 'blog/create_blog_post.html', context)
 
-
+@login_required(login_url='home')
 def post_delete(request, slug):
     """ Deletes blog post form and redirects user back to home page """
     post = get_object_or_404(Post, slug=slug)
+    
+    # Check if the current user is the author of the post
+    if post.author != request.user:
+        messages.error(request, "You do not have permission to delete this post.")
+        return redirect('home')
 
     if request.method == "POST":
         post.delete()
@@ -131,10 +138,15 @@ def post_delete(request, slug):
 
     return render(request, 'blog/delete_blog_post.html', {'post': post})
 
-
+@login_required(login_url='home')
 def EditPost(request, slug):
     """ Edits Users blog post and redirects user back to their blog post """
     post = get_object_or_404(Post, slug=slug)
+    
+    # Check if the current user is the author of the post
+    if post.author != request.user:
+        messages.error(request, "You do not have permission to edit this post.")
+        return redirect('home')
 
     if request.method == 'POST':
         form = CreateBlogPost(request.POST, request.FILES, instance=post)

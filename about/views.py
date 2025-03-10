@@ -24,7 +24,7 @@ class UsersPostList(generic.ListView):
         return Post.objects.filter(author=user, status=1)
 
 
-@login_required
+
 def profile(request):
     """
     Renders the Profile page
@@ -51,13 +51,18 @@ def profile(request):
 
     return render(request, "about/profile.html", context)
 
-
+@login_required
 def UpdateProfile(request):
     """
     Updates the users Profile
     """
     profile, created = Profile.objects.get_or_create(user=request.user)
     profile_form = UpdateProfileForm(instance=profile)
+    
+    # Check if the current user is the author of the post
+    if post.author != request.user:
+        messages.error(request, "You do not have permission to edit this profile.")
+        return redirect('home')
 
     if request.method == "POST":
         profile_form = UpdateProfileForm(
@@ -78,12 +83,17 @@ def UpdateProfile(request):
 
     return render(request, "about/profile_edit.html", context)
 
-
+@login_required
 def DeleteProfile(request):
     """
     Deletes the Users Profile
     """
     profile, created = Profile.objects.get_or_create(user=request.user)
+    
+     # Check if the current user is the author of the post
+    if post.author != request.user:
+        messages.error(request, "You do not have permission to delete this profile.")
+        return redirect('home')
 
     if request.method == "POST":
         profile.delete()
