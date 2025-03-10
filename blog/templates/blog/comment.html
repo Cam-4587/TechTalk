@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% block content %}
 <div class="comment-thread">
 
     <!-- Comment start -->
@@ -8,7 +8,8 @@
         </a>
         <div class="comment-heading">
             <div class="comment-info">
-                <a href="{% url 'userprofile' comment.author.username  %}" class="comment-author">{{ comment.author}}</a>
+                <a href="{% url 'userprofile' comment.author.username  %}" class="comment-author">{{
+                    comment.author}}</a>
                 <p class="m-0">
                     @{{ comment.created_on }}
                 </p>
@@ -18,22 +19,23 @@
             <p>
                 {{ comment.content }}
             </p>
-            <div >
+            <div>
                 {% if user.is_authenticated and comment.author == user %}
                 <div class="mb-2">
-                    <a class="text-decoration-none comment-reply-button" href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>    
+                    <a class="text-decoration-none comment-reply-button"
+                        href="{% url 'comment-delete' comment.id post.slug %}">Delete</a>
                 </div>
                 {% endif %}
             </div>
-            
+
             <!-- Comment end -->
 
 
             <!-- Drop down section to display replies-->
 
-            <div x-data="{ open: false }">
-                <button class="comment-reply-button" type="button" @click="open = ! open"> Toggle Replies</button>
-                <div x-show="open" @click.outside="open = false">
+            <div>
+                <button class="comment-reply-button collapsible" type="button"> Toggle Replies</button>
+                <div class="reply-section">
                     {% for reply in comment.reply.all %}
                     {% include 'blog/reply.html' %}
                     {% endfor %}
@@ -52,3 +54,7 @@
         </div>
     </div>
 </div>
+{% endblock content %}
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

@@ -157,6 +157,10 @@ footer {
   text-decoration: underline;
 }
 
+.reply-section{
+  display:none;
+}
+
 .replies {
   margin-left: 20px;
 }
