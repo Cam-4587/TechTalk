@@ -45,7 +45,7 @@
 
                     <form method="POST" class="reply-form" action="{% url 'reply-sent' comment.id %}">
                         {% csrf_token %}
-                        {{ reply_form }}
+                        {{ reply_form.as_p }}
                         <button class="block reply-button comment-reply-button" type="submit">Submit</button>
                     </form>
                     {% endif %}
