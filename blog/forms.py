@@ -19,7 +19,8 @@ class CommentForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 4,
                 'cols': 70,
-                'placeholder': 'Enter Your Comment'
+                'placeholder': 'Enter Your Comment',
+                "id": "CommentForm",
             })
         }
 
@@ -39,6 +40,7 @@ class ReplyForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 2,
                 'cols': 10,
+                "id": "ReplyForm",
             })
         }
 
