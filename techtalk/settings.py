@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary_storage',
     'cloudinary',
-    'django_summernote',
     'blog',
     'about',
     'contact',
@@ -186,23 +185,6 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': CLOUDINARY_CLOUD_NAME,
     'API_KEY': CLOUDINARY_API_KEY,
     'API_SECRET': CLOUDINARY_API_SECRET,
-}
-
-SUMMERNOTE_CONFIG = {
-    # You can put custom Summernote settings
-    'summernote': {
-        # Change editor size
-        'width': '100%',
-        'height': '480px',
-        'toolbar': [
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['height', ['height']],
-            ['view', ['fullscreen']],
-        ],
-    },
 }
 
 

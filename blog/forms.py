@@ -1,5 +1,4 @@
 from django import forms
-from django_summernote.widgets import SummernoteInplaceWidget
 from django.core.exceptions import ValidationError
 from .models import Comment, Reply, Post, Tag
 
@@ -72,9 +71,6 @@ class CreateBlogPost(forms.ModelForm):
             ),
             'intro': forms.Textarea(
                 attrs={"class": "form-control", 'rows': 2, 'cols': 10}
-            ),
-            'content': SummernoteInplaceWidget(
-                attrs={"class": "form-control",}, 
             ),
         }
 

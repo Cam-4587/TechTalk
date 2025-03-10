@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django_summernote.fields import SummernoteTextField
 from cloudinary.models import CloudinaryField
 import uuid
 
@@ -27,7 +26,7 @@ class Post(models.Model):
         'image', default='placeholder', blank=True, null=True
     )
     intro = models.CharField(blank=True, max_length=150)
-    content = SummernoteTextField()
+    content = models.TextField()
     published_date = models.DateTimeField(auto_now_add=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
