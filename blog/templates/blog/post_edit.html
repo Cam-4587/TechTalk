@@ -11,8 +11,9 @@
     </form>
 </div>
 
+{% endblock %}
+{% block extra_js %}
 <!-- Javascript for tag selection-->
-
 
 <script>
     $(document).ready(function() {
@@ -22,5 +23,5 @@
             width: '100%'
         });
     });
-    </script>
-{% endblock %}
+</script>
+{% endblock extra_js %}

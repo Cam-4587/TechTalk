@@ -32,9 +32,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" as="style">
     <link rel="icon" type="image/x-icon" href="{% static 'images/technology.ico' %}">
     <link rel="stylesheet preload" href="{% static 'css/style.css' %}" type="text/css" as="style">
-    <script async defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet preload" as="style">
-    <script async defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -150,6 +150,9 @@
         crossorigin="anonymous"></script>
     <script async defer src="https://kit.fontawesome.com/591946d0d0.js" crossorigin="anonymous"></script>
     <script async defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% block extra_js %}
+    <!-- Additional js can be added by templates that extend this one -->
+    {% endblock extra_js %}
 </body>
 
 </html>
