@@ -10,10 +10,8 @@
                         {% csrf_token %}
                         <h6>{{post.title}} @{{ post.created_on}}</h6>
                         <div class="d-flex pt-3 gap-3">
-                                <button class="btn btn-secondary" type="submit">Yes, delete</button>
-                                <a class=" btn btn-secondary text-decoration-none text-light "
-                                        href="{% url 'post_blog' post.slug %}">No,
-                                        cancel</a>
+                                <button  class="btn btn-secondary" type="submit">Yes, delete</button>
+                                <a class="btn btn-secondary text-decoration-none text-light" href="{{ request.META.HTTP_REFERER }}">No,cancel</a>
                         </div>
                 </form>
                 

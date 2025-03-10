@@ -12,7 +12,7 @@
                         {% csrf_token %}
                         <div class="d-flex pt-3 gap-3">
                                 <button class="btn btn-secondary" type="submit">Yes, delete</button>
-                                <button class="btn btn-secondary"><a class="text-decoration-none text-light" href="{{ request.META.HTTP_REFERER }}">No, cancel</a></button>
+                                <a class="text-decoration-none text-light btn btn-secondary" href="{{ request.META.HTTP_REFERER }}">No, cancel</a>
                         </div>
                 </form>
         </div>
