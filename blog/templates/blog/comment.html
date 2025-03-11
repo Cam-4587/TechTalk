@@ -33,7 +33,7 @@
             <!-- Drop down section to display replies-->
 
             <div>
-                <button class="comment-reply-button collapsible" type="button"> Toggle Replies</button>
+                <button class="comment-reply-button collapsible" type="button">Toggle Replies</button>
                 <div class="reply-section">
                     {% for reply in comment.reply.all %}
                     {% include 'blog/reply.html' %}
