@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import Comment, Reply, Post, Tag
 
 
@@ -71,6 +72,9 @@ class CreateBlogPost(forms.ModelForm):
             ),
             'intro': forms.Textarea(
                 attrs={"class": "form-control", 'rows': 2, 'cols': 10}
+            ),
+            'content': CKEditorUploadingWidget(
+                attrs={"class": "form-control"}, 
             ),
         }
 

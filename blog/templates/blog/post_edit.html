@@ -6,7 +6,27 @@
     <h1>Edit Post</h1>
     <form method="POST" enctype="multipart/form-data" class="w-75 bg-light border border-dark p-4 rounded border border-5 ">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.media }}
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Image:</label>
+            {{ form.image }}
+        </div>
+        <div class="mb-3">
+            <label for="id_tags" class="form-label">Tags: (maximum of 5):</label>
+            {{ form.tags }}
+        </div>
+        <div class="mb-3">
+            <label for="id_content" class="form-label">Intro:</label>
+            {{ form.intro }}
+        </div>
+        <div class="mb-3">
+            <label for="id_content" class="form-label">Intro:</label>
+            {{ form.content }}
+        </div>
         <button class="btn btn-secondary" type="submit">Save changes</button>
     </form>
 </div>

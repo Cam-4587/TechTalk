@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -11,7 +12,7 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name="profile_name"
     )
     image = CloudinaryField('image', default='nobody', blank=True, null=True)
-    bio = models.TextField()
+    bio = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)

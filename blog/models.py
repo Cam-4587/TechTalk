@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
 from cloudinary.models import CloudinaryField
 import uuid
 
@@ -26,7 +27,7 @@ class Post(models.Model):
         'image', default='placeholder', blank=True, null=True
     )
     intro = models.CharField(blank=True, max_length=150)
-    content = models.TextField()
+    content = RichTextUploadingField()
     published_date = models.DateTimeField(auto_now_add=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

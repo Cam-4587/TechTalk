@@ -10,13 +10,15 @@
     <form class="w-75 bg-light border border-dark p-4 rounded border border-5" method="post"
         enctype="multipart/form-data" id="profile-edit-form"> 
         {% csrf_token %}
-        <label class="mb-3" for="id_image">Change Profile image:</label>
-        <br>
-        {{ profile_form.image }}
-        <hr>
-        <label class="small mb-1">Write your Profile Bio here:</label>
-        <div>{{ profile_form.bio | safe }}</div>
-        <br>
+        {{ profile_form.media }}
+        <div class="mb-3">
+            <label for="id_image" class="form-label">Image:</label>
+            {{ profile_form.image }}
+        </div>
+        <div class="mb-3">
+            <label for="id_image" class="form-label">Bio:</label>
+            {{ profile_form.bio }}
+        </div>
         <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
     </form>
 </div>
