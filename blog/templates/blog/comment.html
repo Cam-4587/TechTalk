@@ -33,7 +33,9 @@
             <!-- Drop down section to display replies-->
 
             <div>
+                {% if user.is_authenticated or comment.reply.all|length > 0 %}
                 <button class="comment-reply-button collapsible" type="button">Toggle Replies</button>
+                {% endif %}
                 <div class="reply-section">
                     {% for reply in comment.reply.all %}
                     {% include 'blog/reply.html' %}
