@@ -33,6 +33,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('status',)
     list_display = ('author', 'status', 'created_on', 'updated_on')
 
+
 admin.site.register(Reply)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)

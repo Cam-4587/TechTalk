@@ -52,15 +52,15 @@ class CreateBlogPost(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'image', 'tags', 'intro', 'content']
-        
+
         labels = {
             'title': 'Title:',
             'image': 'Image:',
             'tags': 'Tags: (maximum of 5):',
             'intro': 'Intro:',
-            'content': 'Content:'            
+            'content': 'Content:'
         }
-        
+
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'image': forms.ClearableFileInput(attrs={
@@ -74,7 +74,7 @@ class CreateBlogPost(forms.ModelForm):
                 attrs={"class": "form-control", 'rows': 2, 'cols': 10}
             ),
             'content': CKEditorUploadingWidget(
-                attrs={"class": "form-control"}, 
+                attrs={"class": "form-control"},
             ),
         }
 

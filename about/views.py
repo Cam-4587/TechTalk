@@ -33,7 +33,6 @@ class UsersPostList(LoginRequiredMixin, generic.ListView):
         return super().dispatch(request, *args, **kwargs)
 
 
-
 def profile(request):
     """
     Renders the Profile page

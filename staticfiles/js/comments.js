@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 document.addEventListener("DOMContentLoaded", function() {
   var coll = document.getElementsByClassName("collapsible");
   
@@ -12,4 +13,4 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
-  })
+  });

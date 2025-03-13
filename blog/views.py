@@ -99,6 +99,7 @@ def reply_delete(request, pk):
         request, 'blog/reply_delete.html', {'reply': reply, 'post': post}
     )
 
+
 @login_required(login_url='home')
 def CreatePost(request):
     """ Sends Post form and redirects user back to home page """
@@ -126,10 +127,11 @@ def CreatePost(request):
 def post_delete(request, slug):
     """ Deletes blog post form and redirects user back to home page """
     post = get_object_or_404(Post, slug=slug)
-    
+
     # Check if the current user is the author of the post
     if post.author != request.user:
-        messages.error(request, 'You do not have permission to delete this post.')
+        messages.error(
+            request, 'You do not have permission to delete this post.')
         return redirect('home')
 
     if request.method == "POST":
@@ -142,10 +144,11 @@ def post_delete(request, slug):
 def EditPost(request, slug):
     """ Edits Users blog post and redirects user back to their blog post """
     post = get_object_or_404(Post, slug=slug)
-    
+
     # Check if the current user is the author of the post
     if post.author != request.user:
-        messages.error(request, "You do not have permission to edit this post.")
+        messages.error(
+            request, "You do not have permission to edit this post.")
         return redirect('home')
 
     if request.method == 'POST':

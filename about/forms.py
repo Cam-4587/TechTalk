@@ -12,7 +12,7 @@ class UpdateProfileForm(forms.ModelForm):
 
     widgets = {
         'bio': CKEditorUploadingWidget(
-                attrs={"class": "form-control"}, 
+                attrs={"class": "form-control"},
             ),
     }
 
