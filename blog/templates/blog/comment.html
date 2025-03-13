@@ -46,7 +46,8 @@
 
                     <form method="POST" class="reply-form" action="{% url 'reply-sent' comment.id %}">
                         {% csrf_token %}
-                        {{ reply_form.as_p }}
+                        <label for="ReplyForm_{{ comment.id }}">Enter Reply here:</label>
+                        <textarea name="content" class="form-control" rows="2" cols="10" id="ReplyForm_{{ comment.id }}"></textarea>
                         <button class="block reply-button comment-reply-button" type="submit">Submit</button>
                     </form>
                     {% endif %}
