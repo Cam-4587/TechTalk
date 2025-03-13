@@ -3,8 +3,8 @@
 {% block content %}
 <!--reply delete form-->
 <main class="main-content">
-    <div class="delete-form bg-light">
-            <p class="my-6">Are you sure you want to delete this comment?</p>
+    <div class="delete-form alert alert-danger">
+            <p class="my-6">Are you sure you want to <strong>DELETE</strong> this reply?</p>
             <form class="d-flex flex-column align-items-center" method="post">
                     {% csrf_token %}
                     <h6>{{reply.author}} @{{ reply.created_on}}</h6>
