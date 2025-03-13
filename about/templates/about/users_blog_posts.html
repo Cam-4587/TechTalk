@@ -4,13 +4,13 @@
 
 <!--Diplay of all of the Users own posts-->
 
-
 {% for post in posts %}
 <div class="d-flex flex-column align-items-center">
     <div class="border border-dark m-3 p-3 rounded bg-light col-lg-6 col-sm-11">
 
         <!--Post title and tags-->
         <h4><u>{{post.title}}</u></h4>
+        <h6>Author: {{post.author}}</h6>
         <div class="tags mt-3">
             {% for tag in post.tags.all %}
             <span class="tag pe-none bg-secondary">{{ tag.tag }}</span>

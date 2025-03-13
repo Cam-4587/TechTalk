@@ -99,7 +99,7 @@ def reply_delete(request, pk):
         request, 'blog/reply_delete.html', {'reply': reply, 'post': post}
     )
 
-
+@login_required(login_url='home')
 def CreatePost(request):
     """ Sends Post form and redirects user back to home page """
     blogpost = CreateBlogPost()

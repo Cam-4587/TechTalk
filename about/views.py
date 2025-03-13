@@ -1,27 +1,36 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Profile
 from blog.models import Post
 from .forms import UpdateProfileForm
 
 
 # Create your views here.
-class UsersPostList(generic.ListView):
+class UsersPostList(LoginRequiredMixin, generic.ListView):
     """
-    Displays users blog posts
+    Displays the user's blog posts
     """
     template_name = "about/users_blog_posts.html"
     context_object_name = "posts"
     paginate_by = 6
 
     def get_queryset(self):
+        # Get the username from the URL parameters
         username = self.kwargs['username']
         user = get_object_or_404(User, username=username)
+        # Ensure only the author's posts are displayed
         return Post.objects.filter(author=user, status=1)
+
+    def dispatch(self, request, *args, **kwargs):
+        # Custom permission check
+        username = self.kwargs['username']
+        if request.user.username != username:
+            return redirect('home')
+        return super().dispatch(request, *args, **kwargs)
 
 
 
