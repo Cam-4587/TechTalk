@@ -40,7 +40,6 @@
         * [Committing changes](#committing-changes)
     * [Back on Heroku](#back-on-heroku)
 * [Testing](#testing)
-* [Bugs](#bugs)
 * [Credits](#credits)
 
 
@@ -58,7 +57,7 @@ Throughout the project Arial was used but Poppins was imported from google fonts
 
 ## Imagery
 
-Static images are used as placeholder images for users profiles and their blog posts if an image hasn't been chosen. The about us page has a static image that is the same image as the the placeholder image for users blog posts.
+Static images are used as placeholder images for users profiles and their blog posts if an image hasn't been chosen. The about us page has a static image that is the same image as the placeholder image for users blog posts.
 
 A map is presented on the contact page to identify Techtalks location.
 
@@ -172,7 +171,7 @@ Once the user has created an account they can then create/update their own Profi
 
 ## <ims>About us page</ims>
 
-+ The about us page gives a small paragraph of text that acts that introduces the user to the website and what the website is about located next to an image.
++ The about us page gives a small paragraph of text that introduces the user to the website and what the website is about located next to an image.
 
 + if the user is not signed up then a sign up button will appear redirecting the user to the sign up page.
 
@@ -208,11 +207,11 @@ Once the user has created an account they can then create/update their own Profi
 + Next to the user's profile is a path to create your own blog post.
 
 + You get redirected to the blog post form where you fill in:
-- The blog title
-- An image file
-- Up to 5 tags to associated your blog post with.
-- An introduction secton that will have a maximum of 150 characters
-- A summernote field to add the users own blog content.
+    - The blog title
+    - An image file
+    - Up to 5 tags to associate your blog post with.
+    - An introduction secton that will have a maximum of 150 characters
+    - A ckeditor field to add the users own blog content.
 
 + Once the user has submitted their blog post it will be pending review by the admin before it can be published.
 + Once it has been published it can be edited and deleted by the user. 
@@ -240,9 +239,11 @@ These are the steps I have taken with regards to defensive design:
 
     They are taken to a delete form on a separate page where they can either commit to deleting or to going back to the previous page.
 
-+ When the user wants to sign out there is an opton to cancel and go back to the previous page.
++ When the user wants to sign out there is an option to cancel and go back to the previous page.
 
 + After a user has created a blog post or made a profile page the profile is submitted but needs to be authenticated by an admin first before it can be published, an alert message appears to tell this to the user.
+
++ A combination of the ```@login_required``` decorator and ```if post.author != request.user``` is used to prevent users, either logged in or not, from accessing pages that they shouldn't have access to.
 
 + Default images:
 
@@ -313,7 +314,7 @@ This project was deplpyed using Heroku.
 
 #### Committing changes
 
-+ git add. , commit and push the changes with and appropriate commit message such as "prepare oriject for deployment"
++ git add. , commit and push the changes with and appropriate commit message such as "prepare project for deployment"
 
 ### Back on Heroku
 
@@ -326,15 +327,6 @@ This project was deplpyed using Heroku.
 
 # Testing
 Testing can be found separately [here](/Testing.md)
-# Bugs
-
-* When incorporating django summernote into my Profile and Blog forms there were issues with html tags appearing on blog posts and profiles so summernote had to be configured to remove some of its elements.
-
-* In the admin panel when displaying the textarea for blog posts and profiles the summernote area doesn't take up the full width but admin are still able to expand the text area to full size. 
-
-* When Django Summernote underwent HTML validation it reported errors despite adding ```.as_p``` to the end of either the profile or blog post form but these errors couldn't be reconciled.
-
-* Lighthouse testing conducted on Mobile views on pages where with forms containing django summernote showed that django Summernote was reducing the performance section due to the loading of ```jquery-3.3.1.min.js``` which is required for the use of Summernote in the profile and blog post forms.
 
 
 # Credits 
@@ -354,8 +346,6 @@ Testing can be found separately [here](/Testing.md)
 
 [Select2](https://select2.org/) - Select2 was used to help select and remove tags from the blog post form.
 
-[Alpine js](https://alpinejs.dev/) - Alpinejs was used to to toggle replies open and closed in the comments section. 
-
 [Login form](https://mdbootstrap.com/docs/standard/extended/login/) - the Login form was used from MDboostrap.
 
 [Sign up form](https://mdbootstrap.com/docs/standard/extended/registration/) - The Registration form was used from MDboostrap.
@@ -363,23 +353,23 @@ Testing can be found separately [here](/Testing.md)
 
 [Creating a user instance](https://www.youtube.com/watch?v=vMKg8W2JEUo&list=PL_KegS2ON4s580mS3nPt5x_eu6kO2cvOc&index=6) - This Youtube tutorial helped me with creating a profile when the user registers via signals.py.
 
-
-[Summernote Customisation](https://stackoverflow.com/questions/28812825/custom-toolbar-with-summernote) and [Summernote Width](https://stackoverflow.com/questions/61657061/how-do-i-resize-the-width-of-summernote)  - These posts in stack overflow helped me in terms of configuring django summernote in settings.py to alter the toolbar of django summernote and adjusting the width of the summernote text area.
-
-
 [limiting the number of tags](https://stackoverflow.com/questions/58369155/how-to-limit-the-amount-of-tags-allowed-in-django-taggit) - This overflow post helped me limit the number of tags a user can add to a blog post.
 
 [About us page image and blog placeholder image.](https://www.freepik.com/free-vector/character-illustration-people-holding-blogging-icons_3425167.htm#fromView=image_search&page=1&position=0&uuid=fdc26587-7189-40e7-b4ef-1937a36dab7d)
 
 [Website technology icon](https://www.flaticon.com/free-icon/technology_10444049?term=technology&page=1&position=25&origin=search&related_id=10444049) and [Favicon converter](https://image.online-convert.com/convert-to-ico) to turn image into favicon.
 
-[Styling Django forms](https://www.youtube.com/watch?v=6-XXvUENY_8) This youtube tutorial helped me to style my blog post form forms using widgets to give the form form control.
+[Styling Django forms](https://www.youtube.com/watch?v=6-XXvUENY_8) This youtube tutorial helped me to style my blog post form using widgets to give the form form control.
 
-[Summernote widget](https://stackoverflow.com/questions/52168446/how-to-use-django-summernote-in-templates) - This stack overflow post helped incorporate summernote as an inline widget so that summernote could be incorporated into my forms.
+[W3Schools Collapsible](https://www.w3schools.com/howto/howto_js_collapsible.asp) - This page from W3schools is where I got the Javascript from for the collapsible section in the reply sections.
+
+Rebecca from the Code institute - Rebecca from the code institute helped me to implement the collapsible element to all comments whereas before it was only targeing odd numbered comments.
+
+[Django CKEditor](https://django-ckeditor.readthedocs.io/en/latest/) and [Django Wysiwyg Tutorial | CKEditor - Code With Stein ](https://www.youtube.com/watch?v=Rh7THG1-THU) - The combination of this document and this youtube tutorial was used to implement the CKeditor in this project.
 
 [Inline items](https://stackoverflow.com/questions/33748059/add-inline-model-to-django-admin-site) - This stack overflow post helped in adding inline elements to my models in the admin panel.
 
 [MS4-ARTstop](https://github.com/AmyOShea/MS4-ARTstop.git) - This project from Amy O Shea helped me Format my README section.
 
-[I think therefore I blog](https://github.com/Code-Institute-Solutions/blog/tree/main/01_getting_set_up) - This project from the code institute introduced me to django summernote and django all auth that was incorporated into my project and helped me when it came to creating unit tests for automatic testing. This project also helped me when creating my Post, Comment and Profile models. This project alos helped me implement pagination into the home page and the user's blog post page.
+[I think therefore I blog](https://github.com/Code-Institute-Solutions/blog/tree/main/01_getting_set_up) - This project from the code institute introduced me with django all auth that was incorporated into my project and helped me when it came to creating unit tests for automatic testing. This project also helped me when creating my Post, Comment and Profile models. This project also helped me implement pagination into the home page and the user's blog post page.
 

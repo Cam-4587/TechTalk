@@ -171,7 +171,7 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
 
 + Forms
     - ```test_form_is_valid``` was used to test the ```commentForm```with the content "This is a comment to the post" and ```self.assertTrue``` asserts whether the form is valid.
-    - ```test_form_is_invalid``` was used to test if the ```commentForm``` with an empty string is invalid.It uses ```self.assertFalse``` to assert that the form is invalid.
+    - ```test_form_is_invalid``` was used to test if the ```commentForm``` with an empty string is invalid. It uses ```self.assertFalse``` to assert that the form is invalid.
     - ```test_form_is_valid``` was used to test the ```replyForm``` with the content "This is a reply to the comment." and ```self.assertTrue``` asserts whether the form is valid.
     - ```test_form_is_invalid``` was used to test if the ```replyForm``` with an empty string is invalid.It uses ```self.assertFalse``` to assert that the form is invalid.
 
@@ -271,5 +271,7 @@ All my Python code has been validated with no issues on [CI Python Linter](https
 My CSS code has been validated on [CSS jigsaw](https://jigsaw.w3.org/css-validator/)
 
 All HTML code that I have created has been validated on [WSC HTML validator](https://validator.w3.org/)
+
+comments.js has been validated on [jshint](https://jshint.com/)
 
 
