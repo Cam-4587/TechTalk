@@ -40,7 +40,6 @@ class ReplyForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 2,
                 'cols': 10,
-                "id": "ReplyForm",
             })
         }
 
