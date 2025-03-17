@@ -177,11 +177,92 @@ CKEDITOR_RESTRICT_BY_USER = True
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
+        'toolbar': [
+            {'name': 'document', 'items': [
+                'Source', '-', 'Save',
+                'Preview', 'Print', '-',
+            ]},
+            {'name': 'clipboard', 'items': [
+                'Cut', 'Copy', 'Paste', 'PasteText',
+                'PasteFromWord', '-', 'Undo', 'Redo'
+            ]},
+            {'name': 'editing', 'items': [
+                'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt'
+            ]},
+            {
+                'name': 'forms',
+                'items': [
+                    'Checkbox', 'Radio', 'TextField',
+                    'Textarea', 'Button', '-',
+                    'CopyFormatting', 'RemoveFormat', '-',
+                    'NumberedList', 'BulletedList', '-',
+                    'Link', 'Unlink',
+                ],
+            },
+            {'name': 'basicstyles', 'items': [
+                'Bold', 'Italic', 'Underline', 'Strike',
+                'Subscript', 'Superscript',
+            ]},
+            {'name': 'paragraph', 'items': [
+                '-', 'Outdent',
+                'Indent', '-', 'Blockquote',
+                'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter',
+                'JustifyRight', 'JustifyBlock',
+                '-', 'BidiLtr', 'BidiRtl', 'Language'
+            ]},
+            {'name': 'insert', 'items': [
+                'Image', 'Flash', 'HorizontalRule',
+                'Smiley', 'SpecialChar', 'PageBreak'
+            ]},
+            {'name': 'styles', 'items': [
+                'Styles', 'Format', 'Font', 'FontSize'
+            ]},
+            {'name': 'colors', 'items': [
+                'TextColor', 'BGColor'
+            ]},
+            {'name': 'tools', 'items': [
+                'Maximize', 'ShowBlocks'
+            ]},
+            {'name': 'about', 'items': [
+                'About'
+            ]}
+        ],
+        'stylesSet': [
+            {'name': 'Italic Title', 'element': 'h3',
+             'styles': {'font-style': 'italic'}},
+            {'name': 'Subtitle', 'element': 'h4', 'styles': {
+                'color': '#aaa', 'font-style': 'italic'
+            }},
+            {'name': 'Special Container', 'element': 'div', 'styles': {
+                'padding': '10px', 'background-color': '#f5f5f5',
+                'border': '1px solid #ddd'
+            }},
+            {'name': 'Inline Styles', 'element': 'span', 'attributes': {
+                'class': 'inline-styles'
+            }},
+            {'name': 'Marker', 'element': 'span', 'styles': {
+                'background-color': 'yellow'
+            }},
+            {'name': 'Small', 'element': 'small'},
+            {'name': 'Computer Code', 'element': 'code'},
+            {'name': 'Keyboard Phrase', 'element': 'kbd'},
+            {'name': 'Sample Text', 'element': 'samp'},
+            {'name': 'Variable', 'element': 'var'},
+            {'name': 'Deleted Text', 'element': 'del'},
+            {'name': 'Inserted Text', 'element': 'ins'},
+            {'name': 'Cited Work', 'element': 'cite'},
+            {'name': 'Inline Quotation', 'element': 'q'},
+            {'name': 'Language: RTL', 'element': 'span',
+             'attributes': {'dir': 'rtl'}},
+            {'name': 'Language: LTR', 'element': 'span',
+             'attributes': {'dir': 'ltr'}}
+        ],
         'height': 300,
         'width': '100%',
+        'padding': '10px',
     },
 }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
