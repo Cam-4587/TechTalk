@@ -154,7 +154,7 @@
 | **About Us page**|
 |Sign up |Click |Redirects user back to Sign up page | Pass|
 | **Contact page**|
-|Submit |Click |Redirects user back to Contact page with confirmation messagw | Pass |
+|Submit |Click |Redirects user back to Contact page with confirmation message | Pass |
 |Submit (any field being empty or inavlid email field) |Click |User is prompted to enter content in the write format.|Pass|
 
 
@@ -219,7 +219,7 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
         - test_successful_profile_delete: This test logs in a user, performs a POST request to delete the profile, and verifies that the response redirects to the correct profile page URL. It also checks that the profile's bio is empty and the image is set to "nobody" after deletion.
 ### Contact app
 + Form
-    -  test_form_is_valid: Verifies that the form is valid when all fields (name, email, message) are provided.
+    - test_form_is_valid: Verifies that the form is valid when all fields (name, email, message) are provided.
     - test_form_is_invalid_without_name: Ensures the form is invalid when the name field is empty.
     - test_form_is_invalid_without_email: Ensures the form is invalid when the email field is empty.
     - test_form_is_invalid_without_message: Ensures the form is invalid when the message field is empty.
@@ -247,7 +247,7 @@ TechTalk has been tested for responsiveness on the following devices:
 
 ## Lighthouse testing
 
-To help with performance and accessiblity:
+To help with performance and accessibility:
 * ```lang = "en-US``` was added to the top HTML tag
 * Google fonts imports has moved from style.css to the head section of base.html.
 * ```async``` and ```defer``` have been added to scripts.
@@ -264,7 +264,7 @@ Below are Lighthouse tests conducted on the home page, a blog post and the profi
 
 
 
-## Code validaiton
+## Code validation
 
 All my Python code has been validated with no issues on [CI Python Linter](https://pep8ci.herokuapp.com/#)
 

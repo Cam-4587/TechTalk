@@ -16,6 +16,11 @@
             {{ form.image }}
         </div>
         <div class="mb-3">
+            {% if form.tags.errors %}
+                <div>
+                    {{ form.tags.errors }}
+                </div>
+            {% endif %}
             <label for="id_tags" class="form-label">Tags: (maximum of 5):</label>
             {{ form.tags }}
         </div>
@@ -32,7 +37,7 @@
 </div>
 
 {% endblock %}
-{% block extra_js %}
+{% block extras %}
 <!-- Javascript for tag selection-->
 
 <script>
@@ -44,4 +49,4 @@
         });
     });
 </script>
-{% endblock extra_js %}
+{% endblock %}

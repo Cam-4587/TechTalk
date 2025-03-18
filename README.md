@@ -1,6 +1,6 @@
 # **TechTalk**
 
-- Techtalk is on online blog where people can make posts about various technology subjects. Techtalk is a place where people can leave comments on those posts to start a conversation about those topics, also having the option to edit and delete posts and contact admin.
+- TechTalk is on online blog where people can make posts about various technology subjects. TechTalk is a place where people can leave comments on those posts to start a conversation about those topics, also having the option to edit and delete posts and contact admin.
 
 - Here is the live version of the website:
 [TechTalk](https://techtalk-3a394e241470.herokuapp.com)
@@ -28,7 +28,7 @@
     * [Profile page](#profile-page)
     * [Create blog post page](#create-blog-post-page)
     * [Users blog post page](#users-blog-post-page)
-* [Databse](#database)
+* [Database](#database)
 * [Defensive Design features](#defensive-design-features)
 * [Deployment](#deployment)
     * [Heroku Deployment](#heroku-deployment)
@@ -46,7 +46,7 @@
 
 # Design
 ## Colours
-This colour scheme was considered becuase the contrast between the lighter coloured background and the black text helps the text stand out.
+This colour scheme was considered because the contrast between the lighter coloured background and the black text helps the text stand out.
 
 It also is a very minimalistic colour scheme meaning that the content of the blogs stand out a lot more.
 !['techtalk colour scheme](docs/read_me/techtalk_colour_scheme.png)
@@ -112,7 +112,7 @@ This project was planned using Agile Methodology, specifically utilizing GitHub 
 
 * Done: Once development was completed, user stories were transitioned to this column.
 
-* Discarded User Stories to dicard a user story that was no longer being used.
+* Discarded User Stories to discard a user story that was no longer being used.
 
 Please find my Kanban Board with my user stories [here](https://github.com/users/Cam-4587/projects/10/views/1).
 
@@ -160,8 +160,8 @@ Once the user has created an account they can then create/update their own Profi
 
     - Within the blog post view you have the blog contents with a comment section below.
     - The comment section comprises of a comment form and a button to toggle through replies to that comment.
-    - If the blog posts author corrosponds to the acitve user then an edit profile page and a delete profile page button will display.
-    - if the comment/reply author corrosponds to the user then a delete button for the comment/reply will appear.
+    - If the blog posts author corresponds to the active user then an edit profile page and a delete profile page button will display.
+    - if the comment/reply author corresponds to the user then a delete button for the comment/reply will appear.
     - Usernames displayed next to comments and replies also act as links to a public Profile page that can be viewed by other users.
     - If the user has no profile or it is pending review then it will display "Profile not found".
 
@@ -185,7 +185,7 @@ Once the user has created an account they can then create/update their own Profi
 
     - The contact form requires the user to enter a name, email and their contact information.
 
-    - The contact form can be used by both registered and unregistered users so it can be used as boh a way to contact admin for collaboration purposes and to highlight and issues with the content.
+    - The contact form can be used by both registered and unregistered users so it can be used as both a way to contact admin for collaboration purposes and to highlight and issues with the content.
 
     <br>
 ![Contact page](/docs/read_me/contact_page.png)
@@ -210,7 +210,7 @@ Once the user has created an account they can then create/update their own Profi
     - The blog title
     - An image file
     - Up to 5 tags to associate your blog post with.
-    - An introduction secton that will have a maximum of 150 characters
+    - An introduction section that will have a maximum of 150 characters
     - A ckeditor field to add the users own blog content.
 
 + Once the user has submitted their blog post it will be pending review by the admin before it can be published.
@@ -270,14 +270,14 @@ A postgres database was used in the creation of this website. Below shows an ima
 ![Entity relationship diagrams](docs/read_me/erd.jpg)
 
 # Authentication
-Authenticaiton was implemented using the ```django-allauth``` library which allows users to sign up as a user, login, sign out and to save their password to google chrome.
+Authentication was implemented using the ```django-allauth``` library which allows users to sign up as a user, login, sign out and to save their password to google chrome.
 
 
 # Deployment
 
 ## Heroku Deployment
 
-This project was deplpyed using Heroku.
+This project was deployed using Heroku.
 
 
 ### On Heroku
@@ -286,7 +286,7 @@ This project was deplpyed using Heroku.
 + Select 'Create New App' from your dashboard, choose an app name and select the appropriate region.
 + Click 'Create App'
 + Select 'Settings' on the navigation menu and In Config vars, add key/values conferring to configuration settings, environment variables, and other key-value pairs related to the Python project. 
-+ Also in Config vars add the key value pair <strong>DISABLE_COLLECTSTATIC: 1</strong> for deployment wihout static files.
++ Also in Config vars add the key value pair <strong>DISABLE_COLLECTSTATIC: 1</strong> for deployment without static files.
 
 
 ### Within the codespace
@@ -322,7 +322,7 @@ This project was deplpyed using Heroku.
 
 + Back on Heroku in 'Config Vars' remove the <strong>DISABLE_COLLECTSTATIC : 1</strong> key/value pair. 
 + Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
-+ At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finshied loading select 'open app'.
++ At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finished loading select 'open app'.
 
 
 # Testing
@@ -331,7 +331,7 @@ Testing can be found separately [here](/Testing.md)
 
 # Credits 
 
-[Cloudianry storage](https://www.youtube.com/watch?v=i0ar7W98Osc)- This Youtube tutorial helped me with uploading images using cloudinary.
+[Cloudinary storage](https://www.youtube.com/watch?v=i0ar7W98Osc)- This Youtube tutorial helped me with uploading images using cloudinary.
 
 [Comments and Replies](https://www.youtube.com/watch?v=T5Jfb_LkoV0&t=1549s) - 
 * This tutorial helped me build a comments and replies section for the blog section.
@@ -363,7 +363,7 @@ Testing can be found separately [here](/Testing.md)
 
 [W3Schools Collapsible](https://www.w3schools.com/howto/howto_js_collapsible.asp) - This page from W3schools is where I got the Javascript from for the collapsible section in the reply sections.
 
-Rebecca from the Code institute - Rebecca from the code institute helped me to implement the collapsible element to all comments whereas before it was only targeing odd numbered comments.
+Rebecca from the Code institute - Rebecca from the code institute helped me to implement the collapsible element to all comments whereas before it was only targeting odd numbered comments.
 
 [Django CKEditor](https://django-ckeditor.readthedocs.io/en/latest/) and [Django Wysiwyg Tutorial | CKEditor - Code With Stein ](https://www.youtube.com/watch?v=Rh7THG1-THU) - The combination of this document and this youtube tutorial was used to implement the CKeditor in this project.
 
