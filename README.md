@@ -256,7 +256,7 @@ These are the steps I have taken with regards to defensive design:
 
     - if the user alters the url to direct them to a page that doesn't exist then they will be displayed with a page that will display
     "<strong>Not Found</strong> The requested resource was not found on this server."
-    - If the user tries to access a another users Profile one isn't available then it will display a page saying <strong>Profile Not Found</strong> 
+    - If the user tries to access a another users Profile when one isn't available then it will display a page saying <strong>Profile Not Found</strong> 
 
 # CRUD Functionality
 + <strong>Registered superusers</strong> can access all Blog posts, comments, replies, profiles and tags in the admin panel where they can create, read, update and delete them.
