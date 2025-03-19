@@ -1,6 +1,6 @@
 # **TechTalk**
 
-- TechTalk is on online blog where people can make posts about various technology subjects. TechTalk is a place where people can leave comments on those posts to start a conversation about those topics, also having the option to edit and delete posts and contact admin.
+- TechTalk is an online blog where people can make posts about various technology subjects. TechTalk is a place where people can leave comments on those posts to start a conversation about those topics, also having the option to edit and delete posts and contact admin.
 
 - Here is the live version of the website:
 [TechTalk](https://techtalk-3a394e241470.herokuapp.com)
@@ -98,9 +98,9 @@ The remaining imagery is uploaded by users to the database.
 
 - As an admin I want to create, read, update, and delete Replies so that I can manage replies in the Admin panel
 
-- As a admin I want to  approve or disapprove comments on blog posts so that I can filter out inappropriate comments. [<code style="color : red">Redacted</code>]
+- As an admin I want to  approve or disapprove comments on blog posts so that I can filter out inappropriate comments. [<code style="color : red">Redacted</code>]
 
-- As a Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post
+- As an Admin I want to remove approval for comments so that when a user submits a comment it appears under the blog post after being redirected back to the blog post
 
 # Agile methodology
 This project was planned using Agile Methodology, specifically utilizing GitHub and its Project Board feature. The Kanban board within GitHub's project view helped to categorize the project tasks into the following sections:
@@ -359,7 +359,7 @@ Testing can be found separately [here](/Testing.md)
 
 [Website technology icon](https://www.flaticon.com/free-icon/technology_10444049?term=technology&page=1&position=25&origin=search&related_id=10444049) and [Favicon converter](https://image.online-convert.com/convert-to-ico) to turn image into favicon.
 
-[Styling Django forms](https://www.youtube.com/watch?v=6-XXvUENY_8) This youtube tutorial helped me to style my blog post form using widgets to give the form form control.
+[Styling Django forms](https://www.youtube.com/watch?v=6-XXvUENY_8) This youtube tutorial helped me to style my blog post form using widgets to give the form control.
 
 [W3Schools Collapsible](https://www.w3schools.com/howto/howto_js_collapsible.asp) - This page from W3schools is where I got the Javascript from for the collapsible section in the reply sections.
 

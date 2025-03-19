@@ -5,9 +5,9 @@
     * [Blog app](#blog-app)
     * [About app](#about-app)
     * [Contact app](#contact-app)
-* [Responsive Design](#responisve-design)
+* [Responsive Design](#responsive-design)
 * [Lighthouse testing](#lighthouse-testing)
-* [Code Validation](#code-validaiton)
+* [Code Validation](#code-validation)
 ## Testing from User Stories
 ### Users 
 * As a Site User I want to  register an account so that I can access the websites features concerning blog posts, comments and reply.
@@ -155,7 +155,7 @@
 |Sign up |Click |Redirects user back to Sign up page | Pass|
 | **Contact page**|
 |Submit |Click |Redirects user back to Contact page with confirmation message | Pass |
-|Submit (any field being empty or inavlid email field) |Click |User is prompted to enter content in the write format.|Pass|
+|Submit (any field being empty or invalid email field) |Click |User is prompted to enter content in the write format.|Pass|
 
 
 
@@ -224,7 +224,7 @@ Automated Unit Testing was carried out with Djangos testing tools and written to
     - test_form_is_invalid_without_email: Ensures the form is invalid when the email field is empty.
     - test_form_is_invalid_without_message: Ensures the form is invalid when the message field is empty.
 
-# Responisve design
+# Responsive design
 TechTalk has been tested for responsiveness on the following devices:
 
 * Iphone SE
